@@ -5,17 +5,15 @@ import org.academiadecodigo.simplegraphics.graphics.Text;
 public class Chronometer {
 
     private Thread thread;
-    private int timer;
     private Text text;
-    private boolean flag;
-
+    private boolean running;
 
 
     public Chronometer() {
 
         this.text = new Text(700 / 2, 500 / 2, "Test");
-        this.timer = 3;
         this.thread = new Thread();
+        this.running = true;
     }
 
     public void chronometero() {
@@ -52,6 +50,7 @@ public class Chronometer {
                 delayCount();
                 text.setText("0");
                 text.draw();
+                stoppedRunning();
             }
 
         }
@@ -69,34 +68,13 @@ public class Chronometer {
 
     }
 
+    public boolean getRunning() {
 
-    public void timer() {
-
-        if (timer <= 0) {
-
-            return;
-
-        }
-
-        int random = (int) (Math.random() * 10);
-
-
-        if (random < 3) {
-
-            timer = timer--;
-
-            System.out.println(timer);
-        }
-
-        System.out.println("nope");
+        return running;
 
     }
 
-    public void setFlag() {
-        this.flag = true;
-    }
-
-    public boolean isFlag() {
-        return flag;
+    public void stoppedRunning() {
+        this.running = false;
     }
 }
