@@ -8,12 +8,14 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 public class KeyboardTest implements KeyboardHandler {
 
     private boolean flag;
+    private Chronometer chronometer;
 
     public KeyboardTest(){
         flag = false;
     }
 
-    public void test() throws InterruptedException {
+    public void test(Chronometer chronometer) throws InterruptedException {
+        this.chronometer = chronometer;
         Keyboard k = new Keyboard(this);
         KeyboardEvent event = new KeyboardEvent();
         event.setKey(KeyboardEvent.KEY_X);
@@ -21,7 +23,8 @@ public class KeyboardTest implements KeyboardHandler {
         k.addEventListener(event);
     }
 
-    public void test2() throws InterruptedException {
+    public void test2(Chronometer chronometer) throws InterruptedException {
+        this.chronometer = chronometer;
         Keyboard k = new Keyboard(this);
         KeyboardEvent event = new KeyboardEvent();
         event.setKey(KeyboardEvent.KEY_K);
@@ -43,7 +46,14 @@ public class KeyboardTest implements KeyboardHandler {
 
     @Override
     public void keyPressed(KeyboardEvent e) {
-        
+
+        if(chronometer.getRunning()){
+            System.out.println("Flag is true");
+            setFlagTrue();
+            return;
+        }
+
+        System.out.println("piu piu");
 
     }
 
