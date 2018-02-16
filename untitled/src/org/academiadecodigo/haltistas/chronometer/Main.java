@@ -8,9 +8,9 @@ public class Main {
 
         Game g = new Game();
         KeyboardTest k = new KeyboardTest();
-        Canvas canvas = new Canvas();
-        Text text = new Text(canvas.getCol(), canvas.getRow(), "Teste");
 
+
+        g.chronometer();
         g.start();
 
 

@@ -1,31 +1,50 @@
 package org.academiadecodigo.haltistas.chronometer;
 
+import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+
 public class Player {
 
     private String name;
     private boolean dead;
-    private KeyboardTest keyboardTest;
+
+
 
     public Player(String name) {
         this.name = name;
-        this.dead = dead;
+        this.dead = false;
     }
 
     public void shoot(Player player) {
 
-        if (keyboardTest.isFlag()) {
-            return;
-        }
 
-        if (dead) {
+        if (this.dead) {
+
+            System.out.println("I am dead");
             return;
         }
-        player.kill();
+        System.out.println("Bang!");
+        player.setDead(kill());
 
     }
 
-    public void kill() {
-        dead = true;
+    public Boolean kill() {
+        System.out.println("dead = true");
+        return dead = true;
+
     }
+
+    public void setDead(boolean dead){
+
+        this.dead = dead;
+    }
+
+    public boolean isDead(){
+
+        return dead;
+
+    }
+
+
+
 
 }

@@ -7,14 +7,19 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 
 public class KeyboardTest implements KeyboardHandler {
 
+
     private boolean flag;
     private Chronometer chronometer;
+    private Player playerOne;
+    private  Player playerTwo;
 
-    public KeyboardTest(){
+    public KeyboardTest() {
         flag = false;
     }
 
-    public void test(Chronometer chronometer) throws InterruptedException {
+    public void test(Chronometer chronometer, Player player, Player playerTwo) throws InterruptedException {
+        playerOne = player;
+        this.playerTwo = playerTwo;
         this.chronometer = chronometer;
         Keyboard k = new Keyboard(this);
         KeyboardEvent event = new KeyboardEvent();
@@ -23,22 +28,23 @@ public class KeyboardTest implements KeyboardHandler {
         k.addEventListener(event);
     }
 
-    public void test2(Chronometer chronometer) throws InterruptedException {
+    /*public void test2(Chronometer chronometer, Player player) throws InterruptedException {
+        playerTwo = player;
         this.chronometer = chronometer;
         Keyboard k = new Keyboard(this);
         KeyboardEvent event = new KeyboardEvent();
         event.setKey(KeyboardEvent.KEY_K);
         event.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         k.addEventListener(event);
-    }
+    }*/
 
-    public boolean isFlag(){
+    public boolean isFlag() {
 
         return flag;
 
     }
 
-    public void setFlagTrue(){
+    public void setFlagTrue() {
 
         flag = true;
 
@@ -47,13 +53,16 @@ public class KeyboardTest implements KeyboardHandler {
     @Override
     public void keyPressed(KeyboardEvent e) {
 
-        if(chronometer.getRunning()){
+        if (chronometer.getRunning()) {
             System.out.println("Flag is true");
             setFlagTrue();
             return;
         }
 
-        System.out.println("piu piu");
+        if (!flag) {
+            playerOne.shoot(playerTwo);
+
+        }
 
     }
 
