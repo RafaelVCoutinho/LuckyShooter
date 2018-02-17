@@ -2,36 +2,43 @@ package org.academiadecodigo.haltistas.chronometer;
 
 public class Game {
 
-    private Player[] players;
+    private HumanPlayer[] humanPlayers;
     private Chronometer chronometer;
     private Canvas canvas;
-    private HumanPlayer humanPlayer;
+    private InputHandlerPlayer1 inputHandlerPlayer1;
+    private InputHandlerPlayer2 inputHandlerPlayer2;
 
     public Game() {
         canvas = new Canvas();
-        players = new Player[]{new HumanPlayer("Woody"), new HumanPlayer("Uganda Warrior")};
+        humanPlayers = new HumanPlayer[]{new HumanPlayer("Woody"), new HumanPlayer("Uganda Warrior")};
         chronometer = new Chronometer();
-    }
-
-    public void chronometer() {
-
-        chronometer.startTimer();
-
+        inputHandlerPlayer1 = new InputHandlerPlayer1(humanPlayers[0]);
+        inputHandlerPlayer2 = new InputHandlerPlayer2(humanPlayers[1]);
+        inputHandlerPlayer1.key1();
+        inputHandlerPlayer2.key2();
     }
 
     public void start() throws InterruptedException {
-
+            chronometer();
+            checkKiller();
     }
 
-    public boolean checkShooter(Player player) {
-        return
+    public void chronometer() {
+        chronometer.startTimer();
+    }
+
+    public boolean checkShooter(HumanPlayer humanPlayer) {
+        return humanPlayer.isShoot();
     }
 
     public void checkKiller() {
-        if (checkShooter()) {
-            players[0].killed();
+       if (checkShooter(humanPlayers[0]) && !checkShooter(humanPlayers[1])){
+           humanPlayers[1].killed();
+           System.out.println(humanPlayers[0] + " wins!!");
+       }
+        if (checkShooter(humanPlayers[1]) && !checkShooter(humanPlayers[1])) {
+            humanPlayers[0].killed();
+            System.out.println(humanPlayers[1] + " wins!!");
         }
-        players[1].killed();
     }
-
 }
