@@ -4,8 +4,10 @@ package org.academiadecodigo.haltistas.chronometer;
 public abstract class Player {
 
     private boolean dead;
+    private String name;
 
-    public Player() {
+    public Player(String name) {
+        this.name = name;
         this.dead = false;
     }
 

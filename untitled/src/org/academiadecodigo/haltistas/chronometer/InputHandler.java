@@ -5,7 +5,6 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 
-import static org.academiadecodigo.haltistas.chronometer.Controls.KEY_A;
 
 public class InputHandler implements KeyboardHandler {
 
@@ -60,10 +59,10 @@ public class InputHandler implements KeyboardHandler {
         switch (keyboardEvent.getKey()) {
 
             case KeyboardEvent.KEY_A:
-                humanplayer.input();
+                this.humanplayer.input();
                 break;
             case KeyboardEvent.KEY_L:
-                humanPlayer2.input();
+                this.humanPlayer2.input();
                 break;
             default:
                 System.out.println("FODETE JOGADOR DA MERDA FIZESTE PIÇA!!!!");

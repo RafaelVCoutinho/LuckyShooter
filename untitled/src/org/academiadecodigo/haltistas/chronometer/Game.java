@@ -8,11 +8,9 @@ public class Game {
     private HumanPlayer humanPlayer;
 
     public Game() {
-
         canvas = new Canvas();
-        players = new Player[]{new HumanPlayer(), new HumanPlayer()};
+        players = new Player[]{new HumanPlayer("Woody"), new HumanPlayer("Uganda Warrior")};
         chronometer = new Chronometer();
-
     }
 
     public void chronometer() {
@@ -25,22 +23,15 @@ public class Game {
 
     }
 
-    public boolean shootBeforeTime() {
-        return humanPlayer.isShoot();
+    public boolean checkShooter(Player player) {
+        return
     }
 
-    public void canShoot() {
-        if (shootBeforeTime()) {
-
+    public void checkKiller() {
+        if (checkShooter()) {
+            players[0].killed();
         }
+        players[1].killed();
     }
-    public void winner(Player player) {
 
-        if (player.isDead()) {
-            System.out.println("I am dead");
-            return;
-        }
-        System.out.println("Bang!");
-        player.killed();
-    }
 }

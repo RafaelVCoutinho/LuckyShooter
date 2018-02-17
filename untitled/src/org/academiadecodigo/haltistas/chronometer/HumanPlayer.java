@@ -5,13 +5,16 @@ public class HumanPlayer extends Player {
     private InputHandler inputHandler;
     private boolean shoot;
 
-    public HumanPlayer() {
+    public HumanPlayer(String name) {
+        super(name);
         this.inputHandler = new InputHandler();
     }
 
     @Override
     public void input() {
-        shoot();
+        if (!isShoot()) {
+            shoot();
+        }
     }
 
     public void shoot() {
