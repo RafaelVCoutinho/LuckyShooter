@@ -13,8 +13,10 @@ public class Game {
         canvas = new Canvas();
         players = new Player[]{new Player("Lucky"), new Player("Luke")};
         chronometer = new Chronometer();
-        k = new KeyboardTest();
+
         k2 = new KeyboardTest2();
+        k = new KeyboardTest();
+
     }
 
     public void chronometer() {
@@ -25,10 +27,10 @@ public class Game {
 
     public void start() throws InterruptedException {
 
-            k.test(chronometer, players[0], players[1], canvas, k2);
-            k2.test2(chronometer, players[0], players[1], canvas, k);
-            //k.test2(chronometer, players[1]);
+        k2.test2(chronometer, players[0], players[1], canvas, k);
+        k.test(chronometer, players[0], players[1], canvas, k2);
 
+        //k.test2(chronometer, players[1]);
 
 
     }

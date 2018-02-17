@@ -58,7 +58,7 @@ public class KeyboardTest implements KeyboardHandler {
     public void keyPressed(KeyboardEvent e) {
 
         if (chronometer.getRunning()) {
-            System.out.println("Flag is true");
+            System.out.println("Flag1 is true");
             setFlagTrue();
             return;
         }

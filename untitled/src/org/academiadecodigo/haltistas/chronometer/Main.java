@@ -6,13 +6,14 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException {
 
-        Game g = new Game();
-        KeyboardTest k = new KeyboardTest();
+        //Game g = new Game();
 
+        //g.start();
+        //g.chronometer();
 
+        Background background = new Background();
 
-        g.start();
-        g.chronometer();
+        background.draw();
 
     }
 }

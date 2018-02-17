@@ -25,6 +25,8 @@ public class Canvas {
         this.col = 700;
         this.row = 500;
 
+
+
         //canvas
         this.rectangle = new Rectangle(10, 10, 700, 500);
         this.rectangle.draw();
@@ -60,13 +62,13 @@ public class Canvas {
     public void removePlayerRectangle(Rectangle rectangle){
 
         rectangle.delete();
-        init();
+        //init();
 
     }
 
     public void deadPlayerRectangleOne(Rectangle rectangle){
 
-        rectangle.delete();
+        //rectangle.delete();
         rectangle = new Rectangle(30, 350, 100, 50);
         rectangle.setColor(Color.BLUE);
         rectangle.fill();

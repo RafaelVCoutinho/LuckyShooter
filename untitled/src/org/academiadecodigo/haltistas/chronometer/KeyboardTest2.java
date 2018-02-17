@@ -24,7 +24,7 @@ public class KeyboardTest2 implements KeyboardHandler{
         rectangle = canvas;
         Keyboard k2 = new Keyboard(this);
         KeyboardEvent event2 = new KeyboardEvent();
-        event2.setKey(KeyboardEvent.KEY_K);
+        event2.setKey(KeyboardEvent.KEY_M);
         event2.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         k2.addEventListener(event2);
 
@@ -43,6 +43,7 @@ public class KeyboardTest2 implements KeyboardHandler{
 
         if(chronometer.getRunning()){
 
+            System.out.println("Flag2 is true");
             setFlagTrue();
             return;
         }
