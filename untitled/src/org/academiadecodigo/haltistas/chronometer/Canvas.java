@@ -15,7 +15,7 @@ public class Canvas {
     private int row;
 
 
-    public static Canvas canvas = new Canvas();
+
     private Rectangle rectangle;
     private Rectangle playerOne;
     private Rectangle playerTwo;
@@ -39,11 +39,12 @@ public class Canvas {
 
     }
 
-    public static Canvas getCanvas(){
+   public void init(){
 
-        return canvas;
+        this.rectangle = new Rectangle(10, 10, 700, 500);
+        this.rectangle.draw();
 
-    }
+   }
 
     public double getCol(){
         return this.col / 2;
@@ -56,11 +57,27 @@ public class Canvas {
 
     }
 
-    public void deadPlayerOne(Rectangle rectangle){
+    public void removePlayerRectangle(Rectangle rectangle){
 
         rectangle.delete();
-        rectangle = new Rectangle(50, 300, 100, 50);
+        init();
+
+    }
+
+    public void deadPlayerRectangleOne(Rectangle rectangle){
+
+        rectangle.delete();
+        rectangle = new Rectangle(30, 350, 100, 50);
         rectangle.setColor(Color.BLUE);
+        rectangle.fill();
+
+    }
+
+    public  void deadPlayerRectangleTwo(Rectangle rectangle){
+
+        rectangle.delete();
+        rectangle = new Rectangle(550, 350, 100, 50);
+        rectangle.setColor(Color.GREEN);
         rectangle.fill();
 
     }

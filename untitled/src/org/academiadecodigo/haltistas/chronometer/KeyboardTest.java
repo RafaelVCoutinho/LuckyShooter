@@ -12,12 +12,16 @@ public class KeyboardTest implements KeyboardHandler {
     private Chronometer chronometer;
     private Player playerOne;
     private  Player playerTwo;
+    private  Canvas rectangle;
+    private  KeyboardTest2 keyboardTest2;
 
     public KeyboardTest() {
         flag = false;
     }
 
-    public void test(Chronometer chronometer, Player player, Player playerTwo) throws InterruptedException {
+    public void test(Chronometer chronometer, Player player, Player playerTwo, Canvas canvas, KeyboardTest2 keyboardTest2) throws InterruptedException {
+        this.keyboardTest2 = keyboardTest2;
+        rectangle = canvas;
         playerOne = player;
         this.playerTwo = playerTwo;
         this.chronometer = chronometer;
@@ -60,7 +64,11 @@ public class KeyboardTest implements KeyboardHandler {
         }
 
         if (!flag) {
-            playerOne.shoot(playerTwo);
+            //playerOne.shoot(playerTwo);
+            System.out.println("Tau");
+            rectangle.removePlayerRectangle(rectangle.getPlayerTwo());
+            rectangle.deadPlayerRectangleTwo(rectangle.getPlayerTwo());
+            keyboardTest2.setFlagTrue();
 
         }
 
@@ -68,6 +76,8 @@ public class KeyboardTest implements KeyboardHandler {
 
     @Override
     public void keyReleased(KeyboardEvent e) {
+
+        return;
 
     }
 

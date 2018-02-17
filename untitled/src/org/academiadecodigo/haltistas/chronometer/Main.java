@@ -10,9 +10,9 @@ public class Main {
         KeyboardTest k = new KeyboardTest();
 
 
-        g.chronometer();
-        g.start();
 
+        g.start();
+        g.chronometer();
 
     }
 }

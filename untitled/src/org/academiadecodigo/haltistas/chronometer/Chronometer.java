@@ -61,7 +61,7 @@ public class Chronometer {
         int randomDelay = (int) (Math.random() * 3500);
 
         try {
-            thread.sleep(randomDelay);
+            Thread.sleep(randomDelay);
         } catch (InterruptedException s) {
             System.out.println("nice");
         }
