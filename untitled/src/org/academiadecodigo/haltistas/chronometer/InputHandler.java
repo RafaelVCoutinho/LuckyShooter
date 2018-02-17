@@ -75,7 +75,5 @@ public class InputHandler implements KeyboardHandler {
 
     }
 
-    public void selectedKey() {
 
-    }
 }
