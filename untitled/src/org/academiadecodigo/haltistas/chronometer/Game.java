@@ -1,9 +1,14 @@
 package org.academiadecodigo.haltistas.chronometer;
 
+import org.academiadecodigo.haltistas.chronometer.Keyboard.InputHandlerPlayer1;
+import org.academiadecodigo.haltistas.chronometer.Keyboard.InputHandlerPlayer2;
+import org.academiadecodigo.haltistas.chronometer.PlayerEnteties.HumanPlayer;
+
 public class Game {
 
     private HumanPlayer[] humanPlayers;
     private Chronometer chronometer;
+    private Score score;
     private Canvas canvas;
     private InputHandlerPlayer1 inputHandlerPlayer1;
     private InputHandlerPlayer2 inputHandlerPlayer2;
@@ -14,6 +19,7 @@ public class Game {
         canvas = new Canvas();
         humanPlayers = new HumanPlayer[]{new HumanPlayer("Woody"), new HumanPlayer("Uganda Warrior")};
         chronometer = new Chronometer(this);
+        score = new Score();
         inputHandlerPlayer1 = new InputHandlerPlayer1(humanPlayers[0]);
         inputHandlerPlayer2 = new InputHandlerPlayer2(humanPlayers[1]);
         inputHandlerPlayer1.key1();
@@ -55,14 +61,17 @@ public class Game {
             humanPlayers[1].killed();
             flagPlayer1 = true;
             flagPlayer2 = true;
+            score.addScorePlayer1();
             System.out.println("Player1 wins " + humanPlayers[1].isDead());
-
+            System.out.println("Player2 score " + score.getScorePlayer1());
         }
         if (humanPlayers[1].isShoot() && !flagPlayer2) {
             humanPlayers[0].killed();
             flagPlayer2 = true;
             flagPlayer1 = true;
+            score.addScorePlayer2();
             System.out.println("Player2 wins " + humanPlayers[0].isDead());
+            System.out.println("Player2 score " + score.getScorePlayer2());
         }
     }
 

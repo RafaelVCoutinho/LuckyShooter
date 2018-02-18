@@ -9,11 +9,11 @@ public class Chronometer {
     private boolean running;
     private Game game;
 
-
     public Chronometer(Game game) {
 
         this.text = new Text(700 / 2, 500 / 2, "Test");
         this.thread = new Thread();
+
         this.running = true;
         this.game = game;
     }

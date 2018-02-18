@@ -1,5 +1,6 @@
-package org.academiadecodigo.haltistas.chronometer;
+package org.academiadecodigo.haltistas.chronometer.Keyboard;
 
+import org.academiadecodigo.haltistas.chronometer.PlayerEnteties.HumanPlayer;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
@@ -31,7 +32,11 @@ public class InputHandlerPlayer2 implements KeyboardHandler {
             return;
         }
         System.out.println("L");
-        humanPlayer.shoot();
+        try {
+            humanPlayer.shoot();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
