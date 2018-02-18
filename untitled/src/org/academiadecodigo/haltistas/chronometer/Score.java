@@ -1,16 +1,15 @@
 package org.academiadecodigo.haltistas.chronometer;
 
+
 public class Score {
 
     private int scorePlayer1;
     private int scorePlayer2;
 
-
     public Score() {
         this.scorePlayer1 = 0;
         this.scorePlayer2 = 0;
     }
-
 
     public void addScorePlayer1() {
 

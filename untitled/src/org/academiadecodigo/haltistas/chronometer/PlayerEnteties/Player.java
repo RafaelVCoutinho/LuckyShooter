@@ -17,6 +17,10 @@ public abstract class Player {
         shoot = true;
     }
 
+    public void notShot() {
+        shoot = false;
+    }
+
     public boolean isShoot() {
         return shoot;
     }
@@ -26,8 +30,11 @@ public abstract class Player {
         this.dead = true;
     }
 
+    public void revive() {
+        this.dead = false;
+    }
+
     public boolean isDead() {
         return this.dead;
     }
-
 }

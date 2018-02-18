@@ -28,15 +28,22 @@ public class Game {
         flagPlayer2 = false;
     }
 
-    public void start() {
+    public void start() throws InterruptedException {
         chronometer();
 
         while (!flagPlayer1 || !flagPlayer2) {
             dead();
             System.out.println();
         }
-        System.out.println("1 " + humanPlayers[0].isDead());
-        System.out.println("2 " + humanPlayers[1].isDead());
+        System.out.println("Player 1 " + score.getScorePlayer1());
+        System.out.println("Player 2 " + score.getScorePlayer2());
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        reset();
+        start();
     }
 
     public void chronometer() {
@@ -75,5 +82,12 @@ public class Game {
         }
     }
 
-
+    public void reset() {
+        flagPlayer1 = false;
+        flagPlayer2 = false;
+        humanPlayers[0].revive();
+        humanPlayers[1].revive();
+        humanPlayers[0].notShot();
+        humanPlayers[1].notShot();
+    }
 }
