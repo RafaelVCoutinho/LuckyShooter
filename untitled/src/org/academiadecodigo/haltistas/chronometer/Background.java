@@ -7,6 +7,7 @@ public class Background extends Grid {
 
 
     private Picture background;
+    private Picture playerWins;
 
 
     public Background() throws InterruptedException {
@@ -16,6 +17,18 @@ public class Background extends Grid {
 
     }
 
+
+
+    public void drawPlayerWins(int adjustX, int adjustY, String source){
+
+        playerWins = new Picture(WIDTH_CENTER-adjustX, HEIGHT_CENTER-adjustY, source);
+        playerWins.draw();
+
+    }
+
+    public void deletePlayerWins(){
+        playerWins.delete();
+    }
 
 
     public void drawBackground() {

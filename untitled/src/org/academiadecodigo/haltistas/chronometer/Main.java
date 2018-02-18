@@ -28,18 +28,28 @@ public class Main {
             characterDraw.drawPLayerTwoAlive("assets/player2Alive.png");
 
 
-            timer.startCountdown();
+            //timer.startCountdown();
 
-            characterDraw.deletePlayer(characterDraw.getPlayerOne());
-            characterDraw.deletePlayer(characterDraw.getPlayerTwo());
+            //characterDraw.deletePlayer(characterDraw.getPlayerOne());
+            //characterDraw.deletePlayer(characterDraw.getPlayerTwo());
 
-            characterDraw.drawPlayerOneDead("assets/player1Dead.png");
+            /*characterDraw.drawPlayerOneDead("assets/player1Dead.png");
             characterDraw.drawPlayerTwoDead("assets/player2Dead.png");
 
             Thread.sleep(1000);
-
             characterDraw.deletePlayer(characterDraw.getPlayerOne());
-            characterDraw.deletePlayer(characterDraw.getPlayerTwo());
+            characterDraw.deletePlayer(characterDraw.getPlayerTwo());*/
+
+            Thread.sleep(1000);
+            background.drawPlayerWins(350, 250,"assets/playerOneWins.png");
+            Thread.sleep(1000);
+            background.deletePlayerWins();
+            background.drawPlayerWins(350, 250,"assets/playerTwoWins.png");
+            Thread.sleep(1000);
+            background.deletePlayerWins();
+            background.drawPlayerWins(300, 250,"assets/youSuck.png");
+            Thread.sleep(1000);
+            background.deletePlayerWins();
 
 
 
