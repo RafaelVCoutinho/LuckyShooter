@@ -2,34 +2,43 @@ package org.academiadecodigo.haltistas.chronometer;
 
 public class Game {
 
-    private Player[] players;
+    private HumanPlayer[] humanPlayers;
     private Chronometer chronometer;
-    private KeyboardTest k;
-    private KeyboardTest2 k2;
     private Canvas canvas;
+    private InputHandlerPlayer1 inputHandlerPlayer1;
+    private InputHandlerPlayer2 inputHandlerPlayer2;
 
     public Game() {
-
         canvas = new Canvas();
-        players = new Player[]{new Player("Lucky"), new Player("Luke")};
+        humanPlayers = new HumanPlayer[]{new HumanPlayer("Woody"), new HumanPlayer("Uganda Warrior")};
         chronometer = new Chronometer();
-        k = new KeyboardTest();
-        k2 = new KeyboardTest2();
-    }
-
-    public void chronometer() {
-
-        chronometer.chronometero();
-
+        inputHandlerPlayer1 = new InputHandlerPlayer1(humanPlayers[0]);
+        inputHandlerPlayer2 = new InputHandlerPlayer2(humanPlayers[1]);
+        inputHandlerPlayer1.key1();
+        inputHandlerPlayer2.key2();
     }
 
     public void start() throws InterruptedException {
+            chronometer();
+            checkKiller();
+    }
 
-            k.test(chronometer, players[0], players[1], canvas, k2);
-            k2.test2(chronometer, players[0], players[1], canvas, k);
-            //k.test2(chronometer, players[1]);
+    public void chronometer() {
+        chronometer.startTimer();
+    }
 
+    public boolean checkShooter(HumanPlayer humanPlayer) {
+        return humanPlayer.isShoot();
+    }
 
-
+    public void checkKiller() {
+       if (checkShooter(humanPlayers[0]) && !checkShooter(humanPlayers[1])){
+           humanPlayers[1].killed();
+           System.out.println(humanPlayers[0] + " wins!!");
+       }
+        if (checkShooter(humanPlayers[1]) && !checkShooter(humanPlayers[1])) {
+            humanPlayers[0].killed();
+            System.out.println(humanPlayers[1] + " wins!!");
+        }
     }
 }

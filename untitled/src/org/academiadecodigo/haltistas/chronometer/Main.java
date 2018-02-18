@@ -7,13 +7,8 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
 
         Game g = new Game();
-        KeyboardTest k = new KeyboardTest();
 
-
-
-        g.start();
-        g.chronometer();
-
+            g.start();
     }
 }
 

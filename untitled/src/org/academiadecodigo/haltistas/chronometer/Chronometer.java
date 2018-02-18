@@ -16,7 +16,7 @@ public class Chronometer {
         this.running = true;
     }
 
-    public void chronometero() {
+    public void startTimer() {
         try {
             Thread.sleep(1000);
         } catch (InterruptedException s) {
@@ -65,13 +65,10 @@ public class Chronometer {
         } catch (InterruptedException s) {
             System.out.println("nice");
         }
-
     }
 
     public boolean getRunning() {
-
         return running;
-
     }
 
     public void stoppedRunning() {
