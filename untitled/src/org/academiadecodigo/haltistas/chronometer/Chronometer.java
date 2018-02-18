@@ -7,13 +7,15 @@ public class Chronometer {
     private Thread thread;
     private Text text;
     private boolean running;
+    private Game game;
 
 
-    public Chronometer() {
+    public Chronometer(Game game) {
 
         this.text = new Text(700 / 2, 500 / 2, "Test");
         this.thread = new Thread();
         this.running = true;
+        this.game = game;
     }
 
     public void startTimer() {
@@ -28,7 +30,7 @@ public class Chronometer {
 
                 text.setText("3");
                 text.draw();
-
+                game.deadDuringTimer();
                 continue;
             }
 
@@ -37,6 +39,7 @@ public class Chronometer {
                 delayCount();
                 text.setText("2");
                 text.draw();
+                game.deadDuringTimer();
                 continue;
             }
 
@@ -44,6 +47,7 @@ public class Chronometer {
                 delayCount();
                 text.setText("1");
                 text.draw();
+                game.deadDuringTimer();
                 continue;
             }
 

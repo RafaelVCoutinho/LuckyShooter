@@ -13,7 +13,7 @@ public class Game {
     public Game() {
         canvas = new Canvas();
         humanPlayers = new HumanPlayer[]{new HumanPlayer("Woody"), new HumanPlayer("Uganda Warrior")};
-        chronometer = new Chronometer();
+        chronometer = new Chronometer(this);
         inputHandlerPlayer1 = new InputHandlerPlayer1(humanPlayers[0]);
         inputHandlerPlayer2 = new InputHandlerPlayer2(humanPlayers[1]);
         inputHandlerPlayer1.key1();
@@ -26,14 +26,10 @@ public class Game {
 
         chronometer();
 
-        while (chronometer.getRunning()) {
-            deadDuringTimer();
-            return;
-        }
-
-        while(!chronometer.getRunning()) {
+        while (!humanPlayers[0].isDead() && !humanPlayers[1].isDead()) {
             dead();
         }
+        System.out.println("acabou");
     }
 
     public void chronometer() {
@@ -45,7 +41,7 @@ public class Game {
         if (humanPlayers[0].isShoot()) {
             humanPlayers[0].killed();
             flagPlayer1 = true;
-            System.out.println("you killed your self player 1");
+            System.out.println("you killed your self player 1" + flagPlayer1);
             return;
         }
         if (humanPlayers[1].isShoot()) {
@@ -58,7 +54,7 @@ public class Game {
     public void dead() {
         if (humanPlayers[0].isShoot() && !flagPlayer1) {
             humanPlayers[1].killed();
-            System.out.println("Player1 wins");
+            System.out.println("Player1 wins" + flagPlayer1);
             return;
         }
         if (humanPlayers[1].isShoot() && !flagPlayer2) {
