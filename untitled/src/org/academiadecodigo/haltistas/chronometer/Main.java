@@ -1,6 +1,5 @@
 package org.academiadecodigo.haltistas.chronometer;
 
-import org.academiadecodigo.simplegraphics.graphics.Text;
 
 public class Main {
 

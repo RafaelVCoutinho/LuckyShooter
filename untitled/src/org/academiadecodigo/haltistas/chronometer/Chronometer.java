@@ -73,11 +73,11 @@ public class Chronometer {
         }
     }
 
-    public boolean getRunning() {
-        return running;
-    }
-
     public void stoppedRunning() {
         this.running = false;
+    }
+
+    public boolean getRunning() {
+        return running;
     }
 }
