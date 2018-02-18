@@ -16,8 +16,8 @@ public class Main {
         background.draw();
         background.drawPlayer1();
         background.drawPlayer2();
-        background.drawcounterPlayer1();
-        background.drawcounterPlayer2();
+        background.drawCounterPlayer1(5);
+        background.drawCounterPlayer2(5);
     }
 }
 
