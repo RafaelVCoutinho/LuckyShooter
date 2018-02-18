@@ -7,13 +7,7 @@ public class HumanPlayer extends Player {
 
     public HumanPlayer(String name) {
         super(name);
-    }
-
-    @Override
-    public void input() {
-        if (!isShoot()) {
-            shoot();
-        }
+        this.shoot = false;
     }
 
     public void shoot() {

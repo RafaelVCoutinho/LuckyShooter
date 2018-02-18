@@ -28,6 +28,7 @@ public class Chronometer {
 
                 text.setText("3");
                 text.draw();
+
                 continue;
             }
 

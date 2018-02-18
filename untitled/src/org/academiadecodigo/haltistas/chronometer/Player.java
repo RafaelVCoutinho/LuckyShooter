@@ -11,8 +11,6 @@ public abstract class Player {
         this.dead = false;
     }
 
-    public abstract void input();
-
     public void killed() {
         this.dead = true;
     }

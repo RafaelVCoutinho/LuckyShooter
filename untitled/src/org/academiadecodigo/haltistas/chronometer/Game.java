@@ -7,6 +7,8 @@ public class Game {
     private Canvas canvas;
     private InputHandlerPlayer1 inputHandlerPlayer1;
     private InputHandlerPlayer2 inputHandlerPlayer2;
+    private boolean flagPlayer1;
+    private boolean flagPlayer2;
 
     public Game() {
         canvas = new Canvas();
@@ -16,29 +18,54 @@ public class Game {
         inputHandlerPlayer2 = new InputHandlerPlayer2(humanPlayers[1]);
         inputHandlerPlayer1.key1();
         inputHandlerPlayer2.key2();
+        flagPlayer1 = false;
+        flagPlayer2 = false;
     }
 
-    public void start() throws InterruptedException {
-            chronometer();
-            checkKiller();
+    public void start() {
+
+        chronometer();
+
+        while (chronometer.getRunning()) {
+            deadDuringTimer();
+            return;
+        }
+
+        while(!chronometer.getRunning()) {
+            dead();
+        }
     }
 
     public void chronometer() {
         chronometer.startTimer();
     }
 
-    public boolean checkShooter(HumanPlayer humanPlayer) {
-        return humanPlayer.isShoot();
-    }
+    public void deadDuringTimer() {
 
-    public void checkKiller() {
-       if (checkShooter(humanPlayers[0]) && !checkShooter(humanPlayers[1])){
-           humanPlayers[1].killed();
-           System.out.println(humanPlayers[0] + " wins!!");
-       }
-        if (checkShooter(humanPlayers[1]) && !checkShooter(humanPlayers[1])) {
+        if (humanPlayers[0].isShoot()) {
             humanPlayers[0].killed();
-            System.out.println(humanPlayers[1] + " wins!!");
+            flagPlayer1 = true;
+            System.out.println("you killed your self player 1");
+            return;
+        }
+        if (humanPlayers[1].isShoot()) {
+            humanPlayers[1].killed();
+            flagPlayer2 = true;
+            System.out.println("you killed your self player 2");
         }
     }
+
+    public void dead() {
+        if (humanPlayers[0].isShoot() && !flagPlayer1) {
+            humanPlayers[1].killed();
+            System.out.println("Player1 wins");
+            return;
+        }
+        if (humanPlayers[1].isShoot() && !flagPlayer2) {
+            humanPlayers[0].killed();
+            System.out.println("Player2 wins");
+        }
+    }
+
+
 }
