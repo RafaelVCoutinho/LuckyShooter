@@ -12,6 +12,7 @@ public abstract class Player {
     }
 
     public void killed() {
+        System.out.println("matou");
         this.dead = true;
     }
 

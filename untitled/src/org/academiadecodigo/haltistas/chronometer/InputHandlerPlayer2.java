@@ -28,7 +28,6 @@ public class InputHandlerPlayer2 implements KeyboardHandler {
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
         if (humanPlayer.isShoot()){
-            System.out.println("Already shot L");
             return;
         }
         System.out.println("L");

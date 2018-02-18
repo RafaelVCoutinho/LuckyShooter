@@ -11,6 +11,7 @@ public class HumanPlayer extends Player {
     }
 
     public void shoot() {
+        System.out.println("disparei");
         this.shoot = true;
     }
 

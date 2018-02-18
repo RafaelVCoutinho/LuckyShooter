@@ -30,7 +30,7 @@ public class Chronometer {
 
                 text.setText("3");
                 text.draw();
-                game.deadDuringTimer();
+                //game.shotDuringTimer();
                 continue;
             }
 
@@ -39,7 +39,7 @@ public class Chronometer {
                 delayCount();
                 text.setText("2");
                 text.draw();
-                game.deadDuringTimer();
+                //game.shotDuringTimer();
                 continue;
             }
 
@@ -47,7 +47,7 @@ public class Chronometer {
                 delayCount();
                 text.setText("1");
                 text.draw();
-                game.deadDuringTimer();
+                //game.shotDuringTimer();
                 continue;
             }
 
@@ -55,6 +55,7 @@ public class Chronometer {
                 delayCount();
                 text.setText("0");
                 text.draw();
+                game.shotDuringTimer();
                 stoppedRunning();
             }
 

@@ -23,43 +23,46 @@ public class Game {
     }
 
     public void start() {
-
         chronometer();
 
-        while (!humanPlayers[0].isDead() && !humanPlayers[1].isDead()) {
+        while (!flagPlayer1 || !flagPlayer2) {
             dead();
+            System.out.println();
         }
-        System.out.println("acabou");
+        System.out.println("1 " + humanPlayers[0].isDead());
+        System.out.println("2 " + humanPlayers[1].isDead());
     }
 
     public void chronometer() {
         chronometer.startTimer();
     }
 
-    public void deadDuringTimer() {
+    public void shotDuringTimer() {
 
         if (humanPlayers[0].isShoot()) {
-            humanPlayers[0].killed();
             flagPlayer1 = true;
-            System.out.println("you killed your self player 1" + flagPlayer1);
-            return;
+            System.out.println("shot 2 early player 1");
+
         }
         if (humanPlayers[1].isShoot()) {
-            humanPlayers[1].killed();
             flagPlayer2 = true;
-            System.out.println("you killed your self player 2");
+            System.out.println("shot 2 early player 2");
         }
     }
 
     public void dead() {
         if (humanPlayers[0].isShoot() && !flagPlayer1) {
             humanPlayers[1].killed();
-            System.out.println("Player1 wins" + flagPlayer1);
-            return;
+            flagPlayer1 = true;
+            flagPlayer2 = true;
+            System.out.println("Player1 wins " + humanPlayers[1].isDead());
+
         }
         if (humanPlayers[1].isShoot() && !flagPlayer2) {
             humanPlayers[0].killed();
-            System.out.println("Player2 wins");
+            flagPlayer2 = true;
+            flagPlayer1 = true;
+            System.out.println("Player2 wins " + humanPlayers[0].isDead());
         }
     }
 
