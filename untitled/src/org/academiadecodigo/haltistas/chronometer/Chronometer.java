@@ -7,16 +7,18 @@ public class Chronometer {
     private Thread thread;
     private Text text;
     private boolean running;
+    private Game game;
 
-
-    public Chronometer() {
+    public Chronometer(Game game) {
 
         this.text = new Text(700 / 2, 500 / 2, "Test");
         this.thread = new Thread();
+
         this.running = true;
+        this.game = game;
     }
 
-    public void chronometero() {
+    public void startTimer() {
         try {
             Thread.sleep(1000);
         } catch (InterruptedException s) {
@@ -28,6 +30,7 @@ public class Chronometer {
 
                 text.setText("3");
                 text.draw();
+                //game.shotDuringTimer();
                 continue;
             }
 
@@ -36,6 +39,7 @@ public class Chronometer {
                 delayCount();
                 text.setText("2");
                 text.draw();
+                //game.shotDuringTimer();
                 continue;
             }
 
@@ -43,6 +47,7 @@ public class Chronometer {
                 delayCount();
                 text.setText("1");
                 text.draw();
+                //game.shotDuringTimer();
                 continue;
             }
 
@@ -50,7 +55,9 @@ public class Chronometer {
                 delayCount();
                 text.setText("0");
                 text.draw();
+                game.shotDuringTimer(); //shot = true
                 stoppedRunning();
+                return;
             }
 
         }
@@ -65,16 +72,13 @@ public class Chronometer {
         } catch (InterruptedException s) {
             System.out.println("nice");
         }
-
-    }
-
-    public boolean getRunning() {
-
-        return running;
-
     }
 
     public void stoppedRunning() {
         this.running = false;
+    }
+
+    public boolean getRunning() {
+        return running;
     }
 }
