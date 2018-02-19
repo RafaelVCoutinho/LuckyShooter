@@ -9,6 +9,7 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 
 public class InputHandlerPlayer1 implements KeyboardHandler {
 
+
     private HumanPlayer humanPlayer;
 
     public InputHandlerPlayer1(HumanPlayer humanPlayer) {

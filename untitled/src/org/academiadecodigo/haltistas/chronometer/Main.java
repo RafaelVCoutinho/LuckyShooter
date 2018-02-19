@@ -3,12 +3,15 @@ package org.academiadecodigo.haltistas.chronometer;
 
 public class Main {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
 
-        Game g = new Game();
+        try {
+            Game g = new Game();
+            g.start();
 
-
-        g.start();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
 

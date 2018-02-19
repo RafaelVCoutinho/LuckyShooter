@@ -4,6 +4,8 @@ import org.academiadecodigo.haltistas.chronometer.Keyboard.InputHandlerPlayer1;
 import org.academiadecodigo.haltistas.chronometer.Keyboard.InputHandlerPlayer2;
 import org.academiadecodigo.haltistas.chronometer.PlayerEnteties.HumanPlayer;
 
+import java.util.Arrays;
+
 public class Game {
 
     private HumanPlayer[] humanPlayers;
@@ -33,15 +35,12 @@ public class Game {
 
         while (!flagPlayer1 || !flagPlayer2) {
             dead();
-            System.out.println();
+            //Thread.sleep(1);
+            System.out.println("i don't know how to solve visibility issues");
         }
         System.out.println("Player 1 " + score.getScorePlayer1());
         System.out.println("Player 2 " + score.getScorePlayer2());
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        Thread.sleep(1000);
         reset();
         start();
     }
