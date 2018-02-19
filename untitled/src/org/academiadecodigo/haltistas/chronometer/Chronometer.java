@@ -55,8 +55,8 @@ public class Chronometer {
                 delayCount();
                 text.setText("0");
                 text.draw();
-                //game.shotDuringTimer(); shot = true
-                // stoppedRunning();
+                game.shotDuringTimer(); //shot = true
+                stoppedRunning();
                 return;
             }
 

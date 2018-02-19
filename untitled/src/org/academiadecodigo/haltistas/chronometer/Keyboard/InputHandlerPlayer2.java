@@ -10,15 +10,15 @@ public class InputHandlerPlayer2 implements KeyboardHandler {
 
     private HumanPlayer humanPlayer;
 
+
     public InputHandlerPlayer2(HumanPlayer humanPlayer) {
         this.humanPlayer = humanPlayer;
     }
 
+
     public void key2() {
 
         Keyboard k = new Keyboard(this);
-
-
         KeyboardEvent event = new KeyboardEvent();
 
         event.setKey(KeyboardEvent.KEY_L);
@@ -26,18 +26,22 @@ public class InputHandlerPlayer2 implements KeyboardHandler {
         k.addEventListener(event);
     }
 
+
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
+
         if (humanPlayer.isShoot()){
             return;
         }
         System.out.println("L");
+
         try {
             humanPlayer.shoot();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
+
 
     @Override
     public void keyReleased(KeyboardEvent keyboardEvent) {

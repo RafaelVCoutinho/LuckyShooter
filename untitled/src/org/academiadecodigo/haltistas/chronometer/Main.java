@@ -5,10 +5,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-        try {
-            Game g = new Game();
-            g.start();
+        Game g = new Game();
 
+
+        try {
+            g.start();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
