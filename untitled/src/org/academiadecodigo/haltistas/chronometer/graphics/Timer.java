@@ -1,12 +1,17 @@
 package org.academiadecodigo.haltistas.chronometer.graphics;
 
+import org.academiadecodigo.haltistas.chronometer.Game;
 import org.academiadecodigo.haltistas.chronometer.graphics.Grid;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Timer extends Grid {
 
     private Picture timerDraw;
+    private Game game;
 
+    public Timer(Game game) {
+        this.game = game;
+    }
 
     public void startCountdown() throws InterruptedException {
 
@@ -18,6 +23,7 @@ public class Timer extends Grid {
         deleteTimer();
         delayTimer();
         drawTimer(110, 0, "assets/bang.png");
+        game.shotDuringTimer();
         deleteTimer();
 
     }

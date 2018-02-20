@@ -1,19 +1,28 @@
 package org.academiadecodigo.haltistas.chronometer.PlayerEnteties;
 
 
+import org.academiadecodigo.haltistas.chronometer.graphics.DrawCharacter;
+
 public abstract class Player {
 
     private boolean dead;
     private String name;
     private boolean shoot;
 
+    DrawCharacter drawCharacter;
+
 
     public Player(String name) {
+
+        drawCharacter = new DrawCharacter();
         this.name = name;
         this.dead = false;
         this.shoot = false;
     }
 
+    public DrawCharacter getDrawCharacter() {
+        return drawCharacter;
+    }
 
     public void shoot() throws InterruptedException {
         shoot = true;
