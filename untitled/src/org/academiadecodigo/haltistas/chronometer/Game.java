@@ -34,6 +34,7 @@ public class Game {
     public Game() {
 
         humanPlayers = new HumanPlayer[]{new HumanPlayer("Woody"), new HumanPlayer("Uganda Warrior")};
+
         inputHandlerPlayer1 = new InputHandlerPlayer1(humanPlayers[0]);
         inputHandlerPlayer2 = new InputHandlerPlayer2(humanPlayers[1]);
 
@@ -65,8 +66,8 @@ public class Game {
 
         while (!flags[0] || !flags[1]) {
 
+            Thread.sleep(60);
             dead();
-            //Thread.sleep(1);
             System.out.println("i don't know how to solve visibility issues");
         }
 
@@ -104,8 +105,8 @@ public class Game {
 
     public void dead() {
 
-
-        if (humanPlayers[0].isShoot() && !flags[0]) {
+        
+        if (inputHandlerPlayer1.getPressedKeyTime() < inputHandlerPlayer2.getPressedKeyTime()  && !flags[0] && humanPlayers[0].isShoot()) {
 
             humanPlayers[1].killed();
             drawCharacter.deletePlayer(drawCharacter.getPlayerTwo());
@@ -116,7 +117,7 @@ public class Game {
             drawScore.drawPlayerOneScore(score.getScorePlayer1());
         }
 
-        if (humanPlayers[1].isShoot() && !flags[1]) {
+        if (inputHandlerPlayer2.getPressedKeyTime() < inputHandlerPlayer1.getPressedKeyTime() && !flags[1] && humanPlayers[1].isShoot()) {
 
             humanPlayers[0].killed();
             drawCharacter.deletePlayer(drawCharacter.getPlayerOne());
@@ -132,6 +133,8 @@ public class Game {
     public void reset() {
         Arrays.fill(flags, false);
 
+        inputHandlerPlayer1.resetPressedKeyTime();
+        inputHandlerPlayer2.resetPressedKeyTime();
 
         humanPlayers[0].revive();
         humanPlayers[1].revive();

@@ -9,6 +9,7 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 public class InputHandlerPlayer2 implements KeyboardHandler {
 
     private HumanPlayer humanPlayer;
+    private long pressedKeyTime;
 
 
     public InputHandlerPlayer2(HumanPlayer humanPlayer) {
@@ -26,9 +27,18 @@ public class InputHandlerPlayer2 implements KeyboardHandler {
         k.addEventListener(event);
     }
 
+    public void resetPressedKeyTime(){
+        this.pressedKeyTime = 0;
+    }
+
+    public long getPressedKeyTime(){
+        return pressedKeyTime;
+    }
+
 
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
+
 
         if (humanPlayer.isShoot()){
             return;
@@ -36,6 +46,7 @@ public class InputHandlerPlayer2 implements KeyboardHandler {
         System.out.println("L");
 
         try {
+            pressedKeyTime = System.currentTimeMillis();
             humanPlayer.shoot();
         } catch (InterruptedException e) {
             e.printStackTrace();
