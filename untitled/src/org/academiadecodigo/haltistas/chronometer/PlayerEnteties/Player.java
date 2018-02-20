@@ -18,6 +18,7 @@ public abstract class Player {
         this.name = name;
         this.dead = false;
         this.shoot = false;
+
     }
 
     public DrawCharacter getDrawCharacter() {

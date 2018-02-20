@@ -1,6 +1,5 @@
 package org.academiadecodigo.haltistas.chronometer.PlayerEnteties;
 
-import org.academiadecodigo.haltistas.chronometer.PlayerEnteties.Player;
 
 public class HumanPlayer extends Player {
 
