@@ -9,6 +9,7 @@ public class DrawScore extends Grid {
 
     private Picture star;
     private Picture playerWins;
+    private Picture round;
 
 
     public DrawScore() {
@@ -95,8 +96,53 @@ public class DrawScore extends Grid {
 
     }
 
+    public void drawRound(int number) {
+        switch (number) {
+            case 1:
+                round = new Picture(400, 100, "assets/round1.png");
+                round.draw();
+                deleteRound();
+                break;
+
+            case 2:
+                round = new Picture(400, 100, "assets/round2.png");
+                round.draw();
+                deleteRound();
+                break;
+            case 3:
+                round = new Picture(400, 100, "assets/round3.png");
+                round.draw();
+                deleteRound();
+                break;
+
+            case 4:
+                round = new Picture(400, 100, "assets/round4.png");
+                round.draw();
+                deleteRound();
+                break;
+            case 5:
+                round = new Picture(400, 100, "assets/round5.png");
+                round.draw();
+                deleteRound();
+                break;
+
+            default:
+                System.out.println("error");
+                break;
+        }
+    }
+public void deleteRound(){
+        try {
+            Thread.sleep(2000);
+            round.delete();
+        }catch (InterruptedException s) {
+            System.out.println("Ups");
+        }
+}
+
     public void deletePlayerWins() throws InterruptedException {
         Thread.sleep(1000);
         playerWins.delete();
     }
+
 }

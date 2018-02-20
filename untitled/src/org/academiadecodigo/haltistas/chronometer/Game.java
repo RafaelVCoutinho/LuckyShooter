@@ -58,7 +58,6 @@ public class Game {
         drawCharacter.drawPlayerOneAlive(0, "assets/player1Alive.png");
         drawCharacter.drawPLayerTwoAlive("assets/player2Alive.png");
 
-
         timer.startCountdown();
 
         while (!flags[0] || !flags[1]) {
@@ -100,7 +99,7 @@ public class Game {
 
     public void dead() {
 
-        
+
         if (inputHandlerPlayer1.getPressedKeyTime() - inputHandlerPlayer2.getPressedKeyTime() < 0 && !flags[0]) {
 
             humanPlayers[1].killed();
