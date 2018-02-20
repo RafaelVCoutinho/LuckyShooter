@@ -2,23 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2d1f20b-6427-48ba-b3c4-bd258731151c" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled/org/academiadecodigo/haltistas/chronometer/Chronometer.class" afterPath="$PROJECT_DIR$/out/production/untitled/org/academiadecodigo/haltistas/chronometer/Chronometer.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled/org/academiadecodigo/haltistas/chronometer/Game.class" afterPath="$PROJECT_DIR$/out/production/untitled/org/academiadecodigo/haltistas/chronometer/Game.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled/org/academiadecodigo/haltistas/chronometer/Keyboard/Controls.class" afterPath="$PROJECT_DIR$/out/production/untitled/org/academiadecodigo/haltistas/chronometer/Keyboard/Controls.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled/org/academiadecodigo/haltistas/chronometer/Keyboard/InputHandlerPlayer1.class" afterPath="$PROJECT_DIR$/out/production/untitled/org/academiadecodigo/haltistas/chronometer/Keyboard/InputHandlerPlayer1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled/org/academiadecodigo/haltistas/chronometer/Keyboard/InputHandlerPlayer2.class" afterPath="$PROJECT_DIR$/out/production/untitled/org/academiadecodigo/haltistas/chronometer/Keyboard/InputHandlerPlayer2.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled/org/academiadecodigo/haltistas/chronometer/Main.class" afterPath="$PROJECT_DIR$/out/production/untitled/org/academiadecodigo/haltistas/chronometer/Main.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled/org/academiadecodigo/haltistas/chronometer/PlayerEnteties/Player.class" afterPath="$PROJECT_DIR$/out/production/untitled/org/academiadecodigo/haltistas/chronometer/PlayerEnteties/Player.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled/org/academiadecodigo/haltistas/chronometer/Score.class" afterPath="$PROJECT_DIR$/out/production/untitled/org/academiadecodigo/haltistas/chronometer/Score.class" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/haltistas/chronometer/Chronometer.java" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/haltistas/chronometer/Chronometer.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/haltistas/chronometer/Game.java" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/haltistas/chronometer/Game.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/haltistas/chronometer/Keyboard/InputHandlerPlayer1.java" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/haltistas/chronometer/Keyboard/InputHandlerPlayer1.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/haltistas/chronometer/Keyboard/InputHandlerPlayer2.java" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/haltistas/chronometer/Keyboard/InputHandlerPlayer2.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/haltistas/chronometer/Main.java" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/haltistas/chronometer/Main.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/haltistas/chronometer/PlayerEnteties/Player.java" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/haltistas/chronometer/PlayerEnteties/Player.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/haltistas/chronometer/Score.java" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/haltistas/chronometer/Score.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,7 +18,7 @@
         <entry file="file://$PROJECT_DIR$/src/org/academiadecodigo/haltistas/chronometer/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
-              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -43,12 +27,12 @@
       <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/academiadecodigo/haltistas/chronometer/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="62" column="38" lean-forward="false" selection-start-line="62" selection-start-column="38" selection-end-line="62" selection-end-column="38" />
+            <state relative-caret-position="676">
+              <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1881#1882#0" expanded="true" />
-                <element signature="e#1921#1922#0" expanded="true" />
+                <element signature="e#1835#1836#0" expanded="true" />
+                <element signature="e#1875#1876#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -58,7 +42,7 @@
         <entry file="file://$PROJECT_DIR$/src/org/academiadecodigo/haltistas/chronometer/Chronometer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
-              <caret line="57" column="53" lean-forward="true" selection-start-line="57" selection-start-column="53" selection-end-line="57" selection-end-column="53" />
+              <caret line="57" column="53" lean-forward="false" selection-start-line="57" selection-start-column="53" selection-end-line="57" selection-end-column="53" />
               <folding>
                 <element signature="e#1765#1766#0" expanded="true" />
                 <element signature="e#1801#1802#0" expanded="true" />
@@ -378,16 +362,15 @@
       <option name="presentableId" value="Default" />
       <updated>1518877602748</updated>
       <workItem from="1518877606202" duration="41538000" />
-      <workItem from="1518985804938" duration="7350000" />
+      <workItem from="1518985804938" duration="9874000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48888000" />
+    <option name="totallyTimeSpent" value="51412000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -397,9 +380,9 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969216" sideWeight="0.5021299" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32969216" sideWeight="0.4978701" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969216" sideWeight="0.4978701" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969216" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32969216" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20660277" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
@@ -517,8 +500,8 @@
           <caret line="90" column="34" lean-forward="false" selection-start-line="90" selection-start-column="34" selection-end-line="90" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1881#1882#0" expanded="true" />
-            <element signature="e#1921#1922#0" expanded="true" />
+            <element signature="e#1835#1836#0" expanded="true" />
+            <element signature="e#1875#1876#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -615,7 +598,7 @@
     <entry file="file://$PROJECT_DIR$/src/org/academiadecodigo/haltistas/chronometer/Chronometer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
-          <caret line="57" column="53" lean-forward="true" selection-start-line="57" selection-start-column="53" selection-end-line="57" selection-end-column="53" />
+          <caret line="57" column="53" lean-forward="false" selection-start-line="57" selection-start-column="53" selection-end-line="57" selection-end-column="53" />
           <folding>
             <element signature="e#1765#1766#0" expanded="true" />
             <element signature="e#1801#1802#0" expanded="true" />
@@ -652,19 +635,19 @@
     <entry file="file://$PROJECT_DIR$/src/org/academiadecodigo/haltistas/chronometer/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/academiadecodigo/haltistas/chronometer/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="62" column="38" lean-forward="false" selection-start-line="62" selection-start-column="38" selection-end-line="62" selection-end-column="38" />
+        <state relative-caret-position="676">
+          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1881#1882#0" expanded="true" />
-            <element signature="e#1921#1922#0" expanded="true" />
+            <element signature="e#1835#1836#0" expanded="true" />
+            <element signature="e#1875#1876#0" expanded="true" />
           </folding>
         </state>
       </provider>
