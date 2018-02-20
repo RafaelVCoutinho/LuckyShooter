@@ -6,15 +6,19 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 
+import java.sql.Timestamp;
+
 
 public class InputHandlerPlayer1 implements KeyboardHandler {
 
 
     private HumanPlayer humanPlayer;
+    private long pressedKeyTime;
 
 
     public InputHandlerPlayer1(HumanPlayer humanPlayer) {
         this.humanPlayer = humanPlayer;
+        this.pressedKeyTime = 200;
     }
 
 
@@ -28,6 +32,13 @@ public class InputHandlerPlayer1 implements KeyboardHandler {
         k.addEventListener(event);
     }
 
+    public void resetPressedKeyTime(){
+        this.pressedKeyTime = 200;
+    }
+
+    public long getPressedKeyTime(){
+        return pressedKeyTime;
+    }
 
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
@@ -38,7 +49,11 @@ public class InputHandlerPlayer1 implements KeyboardHandler {
         System.out.println("A");
 
         try {
+
+            pressedKeyTime = System.currentTimeMillis() % 100;
+            System.out.println("Player One " + pressedKeyTime);
             humanPlayer.shoot();
+
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

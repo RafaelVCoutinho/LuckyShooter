@@ -17,12 +17,47 @@ public class DrawScore extends Grid {
 
     }
 
-    public void drawScore(int nextStar) {
+    public void drawPlayerOneScore(int nextStar) {
         int pos = 100;
         int end = 0;
 
 
         switch (nextStar) {
+            case 1:
+                end = 30;
+                break;
+            case 2:
+                end = 60;
+                break;
+            case 3:
+                end = 90;
+                break;
+            case 4:
+                end = 120;
+                break;
+            case 5:
+                end = 150;
+                break;
+
+        }
+
+        for (int i = 0; i < end; i += 30) {
+
+            //this.newStar += nextStar;
+            star = new Picture(pos + i, 30, "assets/starCounter.png");
+            star.draw();
+        }
+
+
+    }
+
+    public void drawPlayerTwoScore(int newStar) {
+
+        int pos = 1050;
+        int end = 0;
+
+
+        switch (newStar) {
             case 1:
                 end = 30;
                 break;
@@ -61,7 +96,7 @@ public class DrawScore extends Grid {
     }
 
     public void deletePlayerWins() throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(800);
         playerWins.delete();
     }
 }
