@@ -102,7 +102,7 @@ public class Game {
     }
 
 
-    public void dead() throws InterruptedException {
+    public void dead() {
 
 
         if (humanPlayers[0].isShoot() && !flags[0]) {
