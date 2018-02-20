@@ -12,7 +12,6 @@ import java.util.Arrays;
 public class Game {
 
     private final int MAX_NUMBER_OF_ROUNDS = 5;
-    private int round;
 
     private InputHandlerPlayer1 inputHandlerPlayer1;
     private InputHandlerPlayer2 inputHandlerPlayer2;
@@ -50,8 +49,6 @@ public class Game {
 
         flags = new Boolean[]{flagPlayer1 = false, flagPlayer2 = false};
         score = new Score();
-
-        round = 1;
     }
 
 
@@ -66,17 +63,15 @@ public class Game {
 
         while (!flags[0] || !flags[1]) {
 
-            Thread.sleep(60);
+            Thread.sleep(100);
             dead();
-            System.out.println("i don't know how to solve visibility issues");
         }
 
         System.out.println("Player Lucky " + score.getScorePlayer1());
         System.out.println("Player Uganda Warrior " + score.getScorePlayer2());
 
-        round++;
 
-        if (round <= MAX_NUMBER_OF_ROUNDS) {
+        if (score.getScorePlayer1() < MAX_NUMBER_OF_ROUNDS && score.getScorePlayer2() < MAX_NUMBER_OF_ROUNDS) {
             Thread.sleep(1000);
 
             drawCharacter.deletePlayer(drawCharacter.getPlayerOne());
@@ -106,7 +101,7 @@ public class Game {
     public void dead() {
 
         
-        if (inputHandlerPlayer1.getPressedKeyTime() < inputHandlerPlayer2.getPressedKeyTime()  && !flags[0] && humanPlayers[0].isShoot()) {
+        if (inputHandlerPlayer1.getPressedKeyTime() - inputHandlerPlayer2.getPressedKeyTime() < 0 && !flags[0]) {
 
             humanPlayers[1].killed();
             drawCharacter.deletePlayer(drawCharacter.getPlayerTwo());
@@ -117,7 +112,7 @@ public class Game {
             drawScore.drawPlayerOneScore(score.getScorePlayer1());
         }
 
-        if (inputHandlerPlayer2.getPressedKeyTime() < inputHandlerPlayer1.getPressedKeyTime() && !flags[1] && humanPlayers[1].isShoot()) {
+        if (inputHandlerPlayer1.getPressedKeyTime() - inputHandlerPlayer2.getPressedKeyTime() > 0 && !flags[1]) {
 
             humanPlayers[0].killed();
             drawCharacter.deletePlayer(drawCharacter.getPlayerOne());

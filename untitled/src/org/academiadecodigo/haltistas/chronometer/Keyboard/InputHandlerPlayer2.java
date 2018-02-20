@@ -14,6 +14,7 @@ public class InputHandlerPlayer2 implements KeyboardHandler {
 
     public InputHandlerPlayer2(HumanPlayer humanPlayer) {
         this.humanPlayer = humanPlayer;
+        pressedKeyTime = 0;
     }
 
 
@@ -27,11 +28,11 @@ public class InputHandlerPlayer2 implements KeyboardHandler {
         k.addEventListener(event);
     }
 
-    public void resetPressedKeyTime(){
-        this.pressedKeyTime = 0;
+    public void resetPressedKeyTime() {
+        this.pressedKeyTime = 200;
     }
 
-    public long getPressedKeyTime(){
+    public long getPressedKeyTime() {
         return pressedKeyTime;
     }
 
@@ -39,14 +40,14 @@ public class InputHandlerPlayer2 implements KeyboardHandler {
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
 
-
-        if (humanPlayer.isShoot()){
+        if (humanPlayer.isShoot()) {
             return;
         }
         System.out.println("L");
 
         try {
-            pressedKeyTime = System.currentTimeMillis();
+            pressedKeyTime = System.currentTimeMillis() % 100;
+            System.out.println("PLayer Two " + pressedKeyTime);
             humanPlayer.shoot();
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -56,7 +57,6 @@ public class InputHandlerPlayer2 implements KeyboardHandler {
 
     @Override
     public void keyReleased(KeyboardEvent keyboardEvent) {
-
     }
 }
 
