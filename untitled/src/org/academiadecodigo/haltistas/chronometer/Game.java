@@ -54,8 +54,8 @@ public class Game {
 
     public void start() throws InterruptedException {
 
-        //drawCharacter.drawPlayerOneAlive(0, "assets/player1Alive.png");
-        //drawCharacter.drawPLayerTwoAlive("assets/player2Alive.png");
+        drawCharacter.drawPlayerOneAlive(0, "assets/player1Alive.png");
+        drawCharacter.drawPLayerTwoAlive("assets/player2Alive.png");
 
         timer.startCountdown();
 
