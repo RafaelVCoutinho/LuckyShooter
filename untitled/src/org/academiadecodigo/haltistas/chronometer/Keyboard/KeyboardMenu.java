@@ -9,14 +9,15 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 public class KeyboardMenu implements KeyboardHandler {
 
 
-    private Keyboard k;
-    private KeyboardEvent event;
     private Menu menu;
     private boolean menuChoice;
+    private boolean menuDeleted;
 
     public KeyboardMenu( Menu menu) {
 
-        menuChoice = false;
+        this.menuDeleted = false;
+        this.menuChoice = false;
+
         this.menu = menu;
 
     }
@@ -41,9 +42,41 @@ public class KeyboardMenu implements KeyboardHandler {
 
     public void menuEnter() {
 
+        Keyboard k = new Keyboard(this);
+        KeyboardEvent event = new KeyboardEvent();
         event.setKey(KeyboardEvent.KEY_SPACE);
         event.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         k.addEventListener(event);
+
+    }
+
+    public void menuKeys(){
+        menuUp();
+        menuDown();
+        menuEnter();
+    }
+
+    public boolean getMenuChoice(){
+        return menuChoice;
+    }
+
+    public boolean getMenuDeleted(){
+
+        return menuDeleted;
+
+    }
+
+    public void menuChoiceFalse(){
+        menuChoice = false;
+    }
+
+    public void menuDeletedTrue(){
+        menuDeleted = true;
+    }
+
+    public void menuDeletedFalse(){
+
+        menuDeleted = false;
 
     }
 
@@ -62,6 +95,7 @@ public class KeyboardMenu implements KeyboardHandler {
                 break;
             case KeyboardEvent.KEY_SPACE:
                 menuChoice = true;
+                menuDeleted = true;
                 break;
             default:
                 System.out.println("Ups!");

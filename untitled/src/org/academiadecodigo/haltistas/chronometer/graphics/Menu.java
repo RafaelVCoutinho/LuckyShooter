@@ -18,11 +18,7 @@ public class Menu extends Grid {
         menu = new Rectangle(10, 10, 1381, 741);
     }
 
-    public void drawMenu() throws InterruptedException {
 
-        menu.draw();
-
-    }
 
     public void drawPlayerVsPlayer(){
 
@@ -32,7 +28,7 @@ public class Menu extends Grid {
     }
 
 
-    public void darwPlayerVsComputer(){
+    public void drawPlayerVsComputer(){
 
         playerVsComputer = new Picture(WIDTH_CENTER-245, HEIGHT_CENTER + 80, "assets/playervscomputer.png");
         playerVsComputer.draw();
@@ -51,10 +47,6 @@ public class Menu extends Grid {
 
     public void moveMenuPointerDown(){
 
-        if(menuPointer.getY() == 110 && menuPointer.getX() == 470){
-            return;
-        }
-
         menuPointer.delete();
         menuPointer = new Picture(WIDTH_CENTER-590, HEIGHT_CENTER + 115, "assets/menupointer.png");
         menuPointer.draw();
@@ -66,5 +58,19 @@ public class Menu extends Grid {
         drawMenuPointer();
     }
 
+    public void deleteMenu(){
 
+        menu.delete();
+        playerVsPlayer.delete();
+        playerVsComputer.delete();
+        menuPointer.delete();
+    }
+
+    public void drawMenu() {
+        menu.draw();
+        drawPlayerVsPlayer();
+        drawPlayerVsComputer();
+        drawMenuPointer();
+
+    }
 }

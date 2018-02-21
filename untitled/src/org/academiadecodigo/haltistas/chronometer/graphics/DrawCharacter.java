@@ -45,4 +45,11 @@ public class DrawCharacter {
         return playerTwo;
     }
 
+    public void deleteCharacters(){
+
+        playerOne.delete();
+        playerTwo.delete();
+
+    }
+
 }

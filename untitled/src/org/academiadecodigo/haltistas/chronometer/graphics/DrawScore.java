@@ -145,4 +145,10 @@ public void deleteRound(){
         playerWins.delete();
     }
 
+    public void deleteScore(){
+        star.delete();
+        playerWins.delete();
+        //round.delete();
+    }
+
 }

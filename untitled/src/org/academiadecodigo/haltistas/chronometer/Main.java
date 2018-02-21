@@ -10,22 +10,12 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException {
 
-        /*Grid grid = new Grid();
-        Background background = new Background();
+
         Game game = new Game();
 
-        grid.drawGrid();
-        background.drawBackground();
-        game.start();*/
 
-        Menu menu = new Menu();
-        KeyboardMenu keyboardMenu = new KeyboardMenu(menu);
-        keyboardMenu.menuDown();
-        keyboardMenu.menuUp();
-        menu.drawMenu();
-        menu.drawPlayerVsPlayer();
-        menu.darwPlayerVsComputer();
-        menu.drawMenuPointer();
+        game.start();
+
 
     }
 }

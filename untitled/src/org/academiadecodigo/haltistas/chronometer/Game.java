@@ -4,10 +4,7 @@ import org.academiadecodigo.haltistas.chronometer.Keyboard.InputHandlerPlayer1;
 import org.academiadecodigo.haltistas.chronometer.Keyboard.InputHandlerPlayer2;
 import org.academiadecodigo.haltistas.chronometer.Keyboard.KeyboardMenu;
 import org.academiadecodigo.haltistas.chronometer.PlayerEnteties.HumanPlayer;
-import org.academiadecodigo.haltistas.chronometer.graphics.DrawCharacter;
-import org.academiadecodigo.haltistas.chronometer.graphics.DrawScore;
-import org.academiadecodigo.haltistas.chronometer.graphics.Menu;
-import org.academiadecodigo.haltistas.chronometer.graphics.Timer;
+import org.academiadecodigo.haltistas.chronometer.graphics.*;
 
 import java.util.Arrays;
 
@@ -28,6 +25,9 @@ public class Game {
 
     private Timer timer;
     private Score score;
+
+    private Grid grid;
+    private Background background;
 
     private DrawScore drawScore;
 
@@ -60,6 +60,27 @@ public class Game {
 
     public void start() throws InterruptedException {
 
+
+        keyboardMenu.menuKeys();
+
+        if (score.getScorePlayer1() == 0 && score.getScorePlayer2() == 0) {
+            menu.drawMenu();
+        }
+
+        while (!keyboardMenu.getMenuChoice()) {
+            Thread.sleep(60);
+
+        }
+
+        if (keyboardMenu.getMenuDeleted()) {
+            menu.deleteMenu();
+            grid = new Grid();
+            grid.drawGrid();
+            background = new Background();
+            background.drawBackground();
+            keyboardMenu.menuDeletedFalse();
+        }
+
         drawCharacter.drawPlayerOneAlive(0, "assets/player1Alive.png");
         drawCharacter.drawPLayerTwoAlive("assets/player2Alive.png");
 
@@ -84,15 +105,30 @@ public class Game {
     }
 
 
-
     public void winner() {
 
         if (score.getScorePlayer1() == 5) {
             drawScore.drawPlayerWins(350, 250, "assets/playerOneWins.png");
+            grid.deleteGird();
+            background.deleteBackground();
+            drawCharacter.deleteCharacters();
+            drawScore.deleteScore();
+            menu.drawMenu();
+            keyboardMenu.menuChoiceFalse();
+            keyboardMenu.menuDeletedTrue();
+
         }
 
         if (score.getScorePlayer2() == 5) {
             drawScore.drawPlayerWins(350, 250, "assets/playerTwoWins.png");
+            grid.deleteGird();
+            background.deleteBackground();
+            drawCharacter.deleteCharacters();
+            drawScore.deleteScore();
+            menu.drawMenu();
+            keyboardMenu.menuChoiceFalse();
+            keyboardMenu.menuDeletedTrue();
+
         }
     }
 

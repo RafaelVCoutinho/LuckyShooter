@@ -26,5 +26,8 @@ public class Grid {
         grid.draw();
     }
 
+    public void deleteGird(){
+        grid.delete();
+    }
 
 }

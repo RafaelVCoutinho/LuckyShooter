@@ -23,4 +23,8 @@ public class Background extends Grid {
 
     }
 
+    public void deleteBackground(){
+        background.delete();
+    }
+
 }
