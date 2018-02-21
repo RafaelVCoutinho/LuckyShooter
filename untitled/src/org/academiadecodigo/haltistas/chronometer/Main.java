@@ -13,8 +13,11 @@ public class Main {
 
         Game game = new Game();
 
+        while (true) {
 
-        game.start();
+            game.start();
+
+        }
 
 
     }

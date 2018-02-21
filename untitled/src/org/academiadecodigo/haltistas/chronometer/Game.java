@@ -69,22 +69,39 @@ public class Game {
 
         while (!keyboardMenu.getMenuChoice()) {
             Thread.sleep(60);
-
         }
 
-        if (keyboardMenu.getMenuDeleted()) {
+        if (keyboardMenu.getMenuDeleted() && keyboardMenu.getPlayerVsPlayer()) {
+            System.out.println("entrou no player vs player");
             menu.deleteMenu();
             grid = new Grid();
             grid.drawGrid();
             background = new Background();
             background.drawBackground();
+            drawCharacter.drawPlayerOneAlive(0, "assets/player1Alive.png");
+            drawCharacter.drawPLayerTwoAlive("assets/player2Alive.png");
+            timer.startCountdown();
+
             keyboardMenu.menuDeletedFalse();
         }
 
-        drawCharacter.drawPlayerOneAlive(0, "assets/player1Alive.png");
-        drawCharacter.drawPLayerTwoAlive("assets/player2Alive.png");
 
-        timer.startCountdown();
+        if (keyboardMenu.getMenuDeleted() && !keyboardMenu.getPlayerVsPlayer()) {
+            System.out.println("entrou no bot");
+            menu.deleteMenu();
+            grid = new Grid();
+            grid.drawGrid();
+            background = new Background();
+            background.drawBackground();
+            drawCharacter.drawPlayerOneAlive(0, "assets/player1Alive.png");
+            drawCharacter.drawPLayerTwoAlive("assets/player2Alive.png");
+            timer.startCountdown();
+
+            keyboardMenu.menuDeletedFalse();
+        }
+
+
+
 
         while (!flags[0] || !flags[1]) {
 
@@ -116,6 +133,7 @@ public class Game {
             menu.drawMenu();
             keyboardMenu.menuChoiceFalse();
             keyboardMenu.menuDeletedTrue();
+            score.reset();
 
         }
 
@@ -128,6 +146,7 @@ public class Game {
             menu.drawMenu();
             keyboardMenu.menuChoiceFalse();
             keyboardMenu.menuDeletedTrue();
+            score.reset();
 
         }
     }

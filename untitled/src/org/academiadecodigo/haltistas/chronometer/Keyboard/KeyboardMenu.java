@@ -12,9 +12,11 @@ public class KeyboardMenu implements KeyboardHandler {
     private Menu menu;
     private boolean menuChoice;
     private boolean menuDeleted;
+    private boolean playerVsPlayer;
 
     public KeyboardMenu( Menu menu) {
 
+        playerVsPlayer = true;
         this.menuDeleted = false;
         this.menuChoice = false;
 
@@ -80,6 +82,10 @@ public class KeyboardMenu implements KeyboardHandler {
 
     }
 
+    public boolean getPlayerVsPlayer(){
+        return playerVsPlayer;
+    }
+
 
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
@@ -89,9 +95,13 @@ public class KeyboardMenu implements KeyboardHandler {
 
             case KeyboardEvent.KEY_UP:
                 menu.moveMenuPointerUp();
+                playerVsPlayer = true;
+                System.out.println("estou true");
                 break;
             case KeyboardEvent.KEY_DOWN:
                 menu.moveMenuPointerDown();
+                playerVsPlayer = false;
+                System.out.println("estou false");
                 break;
             case KeyboardEvent.KEY_SPACE:
                 menuChoice = true;
