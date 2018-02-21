@@ -8,6 +8,7 @@ public class Timer extends Grid {
 
     private Picture timerDraw;
     private Game game;
+    private long bangTime;
 
     public Timer(Game game) {
         this.game = game;
@@ -23,7 +24,9 @@ public class Timer extends Grid {
         deleteTimer();
         delayTimer();
         drawTimer(110, 0, "assets/bang.png");
-        game.shotDuringTimer();
+        bangTime = System.currentTimeMillis();
+        Thread.sleep(50);
+        game.shotBeforeTimer();
         deleteTimer();
 
     }
@@ -48,5 +51,11 @@ public class Timer extends Grid {
 
     }
 
+    public long getBangTime() {
+        return bangTime;
+    }
 
+    public void resetBangTime() {
+        bangTime = 0;
+    }
 }
