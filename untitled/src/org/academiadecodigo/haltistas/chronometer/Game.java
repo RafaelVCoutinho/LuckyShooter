@@ -2,9 +2,11 @@ package org.academiadecodigo.haltistas.chronometer;
 
 import org.academiadecodigo.haltistas.chronometer.Keyboard.InputHandlerPlayer1;
 import org.academiadecodigo.haltistas.chronometer.Keyboard.InputHandlerPlayer2;
+import org.academiadecodigo.haltistas.chronometer.Keyboard.KeyboardMenu;
 import org.academiadecodigo.haltistas.chronometer.PlayerEnteties.HumanPlayer;
 import org.academiadecodigo.haltistas.chronometer.graphics.DrawCharacter;
 import org.academiadecodigo.haltistas.chronometer.graphics.DrawScore;
+import org.academiadecodigo.haltistas.chronometer.graphics.Menu;
 import org.academiadecodigo.haltistas.chronometer.graphics.Timer;
 
 import java.util.Arrays;
@@ -15,6 +17,8 @@ public class Game {
 
     private InputHandlerPlayer1 inputHandlerPlayer1;
     private InputHandlerPlayer2 inputHandlerPlayer2;
+    private KeyboardMenu keyboardMenu;
+    private Menu menu;
 
     private HumanPlayer[] humanPlayers;
 
@@ -33,9 +37,11 @@ public class Game {
     public Game() {
 
         humanPlayers = new HumanPlayer[]{new HumanPlayer("Woody Toy"), new HumanPlayer("Lucky Luke")};
-
+        menu = new Menu();
         inputHandlerPlayer1 = new InputHandlerPlayer1(humanPlayers[0]);
         inputHandlerPlayer2 = new InputHandlerPlayer2(humanPlayers[1]);
+
+        keyboardMenu = new KeyboardMenu(menu);
 
         drawCharacter = new DrawCharacter();
 
