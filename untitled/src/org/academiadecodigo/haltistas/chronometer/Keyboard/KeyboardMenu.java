@@ -14,7 +14,7 @@ public class KeyboardMenu implements KeyboardHandler {
     private boolean menuDeleted;
     private boolean playerVsPlayer;
 
-    public KeyboardMenu( Menu menu) {
+    public KeyboardMenu(Menu menu) {
 
         playerVsPlayer = true;
         this.menuDeleted = false;
@@ -52,44 +52,47 @@ public class KeyboardMenu implements KeyboardHandler {
 
     }
 
-    public void menuKeys(){
+    public void menuKeys() {
         menuUp();
         menuDown();
         menuEnter();
     }
 
-    public boolean getMenuChoice(){
+    public boolean getMenuChoice() {
         return menuChoice;
     }
 
-    public boolean getMenuDeleted(){
+    public boolean getMenuDeleted() {
 
         return menuDeleted;
 
     }
 
-    public void menuChoiceFalse(){
+    public void menuChoiceFalse() {
         menuChoice = false;
     }
 
-    public void menuDeletedTrue(){
+    public void menuDeletedTrue() {
         menuDeleted = true;
     }
 
-    public void menuDeletedFalse(){
+    public void menuDeletedFalse() {
 
         menuDeleted = false;
 
     }
 
-    public boolean getPlayerVsPlayer(){
+    public boolean getPlayerVsPlayer() {
         return playerVsPlayer;
     }
 
 
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
-        
+
+        if (menuDeleted) {
+            return;
+        }
 
         switch (keyboardEvent.getKey()) {
 

@@ -89,7 +89,7 @@ public class GameTwo {
         menu.deleteMenu();
 
         if(score.getScorePlayer1() == 0 && score.getScorePlayer2() == 0){
-            characterSelectionMenu.drawCharMenu();
+            characterSelectionMenu.drawGridCharMenu();
             characterSelectionMenu.showPlayerOnePointer();
             characterSelectionMenu.showPlayerTwoPointer();
             characterSelectionMenu.drawPlayerOneCharacter();
@@ -117,8 +117,8 @@ public class GameTwo {
             background.drawBackground();
 
 
-            drawCharacter.drawPlayerOneAlive(20, characterSelectionMenu.playerOneCharacterAliveChoice(characterSelectionKeyboard.getPlayerOneCharPosition()));
-            drawCharacter.drawPLayerTwoAlive(20, characterSelectionMenu.playerTwoCharacterAliveChoice(characterSelectionKeyboard.getPlayerTwoCharPosition()));
+            drawCharacter.drawPlayerOneAlive(characterSelectionKeyboard.getPlayerOneCharPosition(), characterSelectionMenu.playerOneCharacterAliveChoice(characterSelectionKeyboard.getPlayerOneCharPosition()));
+            drawCharacter.drawPLayerTwoAlive(characterSelectionKeyboard.getPlayerTwoCharPosition(), characterSelectionMenu.playerTwoCharacterAliveChoice(characterSelectionKeyboard.getPlayerTwoCharPosition()));
             timer.startCountdown();
         }
 
@@ -144,8 +144,8 @@ public class GameTwo {
 
         if (score.getScorePlayer1() != 0 || score.getScorePlayer2() != 0) {
 
-            drawCharacter.drawPlayerOneAlive(20, characterSelectionMenu.playerOneCharacterAliveChoice(characterSelectionKeyboard.getPlayerOneCharPosition()));
-            drawCharacter.drawPLayerTwoAlive(20, characterSelectionMenu.playerTwoCharacterAliveChoice(characterSelectionKeyboard.getPlayerTwoCharPosition()));
+            drawCharacter.drawPlayerOneAlive(characterSelectionKeyboard.getPlayerOneCharPosition(), characterSelectionMenu.playerOneCharacterAliveChoice(characterSelectionKeyboard.getPlayerOneCharPosition()));
+            drawCharacter.drawPLayerTwoAlive(characterSelectionKeyboard.getPlayerTwoCharPosition(), characterSelectionMenu.playerTwoCharacterAliveChoice(characterSelectionKeyboard.getPlayerTwoCharPosition()));
             timer.startCountdown();
         }
 

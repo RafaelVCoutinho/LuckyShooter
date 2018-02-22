@@ -147,7 +147,7 @@ public class CharacterSelectionKeyboard implements KeyboardHandler {
         switch (keyboardEvent.getKey()) {
 
             case KeyboardEvent.KEY_1:
-                if (playerOneCharPosition > 2) {
+                if (playerOneCharPosition > 1) {
                     break;
                 }
                 characterSelectionMenu.playerOneDown();
@@ -169,7 +169,7 @@ public class CharacterSelectionKeyboard implements KeyboardHandler {
                 break;
 
             case KeyboardEvent.KEY_8:
-                if(playerTwoCharPosition > 2){
+                if(playerTwoCharPosition > 1){
                     break;
                 }
                 playerTwoCharPosition += 1;
