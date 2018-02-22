@@ -1,7 +1,5 @@
 package org.academiadecodigo.haltistas.chronometer;
 
-import org.academiadecodigo.haltistas.chronometer.Keyboard.CharacterSelectionKeyboard;
-import org.academiadecodigo.haltistas.chronometer.graphics.CharacterSelectionMenu;
 
 public class Main {
 

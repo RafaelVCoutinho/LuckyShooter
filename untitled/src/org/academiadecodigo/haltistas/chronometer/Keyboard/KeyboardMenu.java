@@ -90,6 +90,10 @@ public class KeyboardMenu implements KeyboardHandler {
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
 
+        if(menuDeleted){
+            return;
+        }
+
         switch (keyboardEvent.getKey()) {
 
 

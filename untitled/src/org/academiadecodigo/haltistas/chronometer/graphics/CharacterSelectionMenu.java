@@ -5,20 +5,41 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class CharacterSelectionMenu extends Grid {
 
 
-    private String[] charSpritesAlive;
-    private String[] charSpritesDead;
-    private Picture charPointer;
-    private Picture player;
-    private Picture noob;
-    private Picture rickSanches;
-    private Picture lucky;
+    private String[] playerOneSpritesAlive;
+    private String[] playerOneSpritesDead;
+
+    private String[] playerTwoSpritesAlive;
+    private String[] playersTwoSpritesDead;
+
+
+    private Picture playerOnePointer;
+    private Picture playerTwoPointer;
+
+
+    private Picture cowboyOne;
+    private Picture noobOne;
+    private Picture rickSanchesOne;
+    private Picture luckyOne;
+
+    private Picture cowboyTwo;
+    private Picture noobTwo;
+    private Picture rickSanchesTwo;
+    private Picture luckyTwo;
 
 
     public CharacterSelectionMenu(){
 
-        charSpritesAlive = new String[]{"assets/player1Alive.png","assets/noobalive.png", "assets/rick_sanchez_alive.png", "assets/luckylukealive.png" };
-        charSpritesDead = new String[]{"assets/player1Dead.png","assets/noobdead.png", "assets/rick_sanchez_dead.png", "assets/luckylukedead.png"};
-        charPointer = new Picture(200, 400, "assets/charpointer.png");
+        playerOneSpritesAlive = new String[]{"assets/player1Alive.png","assets/noobalive.png", "assets/rick_sanchez_alive.png", "assets/luckylukealive.png" };
+        playerOneSpritesDead = new String[]{"assets/player1Dead.png","assets/noobdead.png", "assets/rick_sanchez_dead.png", "assets/luckylukedead.png"};
+
+        playerTwoSpritesAlive = new String[]{"assets/player1Alive.png","assets/noobalive.png", "assets/rick_sanchez_alive.png", "assets/luckylukealive.png" };
+        playersTwoSpritesDead = new String[]{"assets/player1Dead.png","assets/noobdead.png", "assets/rick_sanchez_dead.png", "assets/luckylukedead.png"};
+
+        playerOnePointer = new Picture(50, 100, "assets/menupointer.png");
+        playerOnePointer.draw();
+
+        playerTwoPointer = new Picture(1200, 100, "assets/menupointer.png");
+        playerTwoPointer.draw();
 
     }
 
@@ -26,64 +47,129 @@ public class CharacterSelectionMenu extends Grid {
         drawGrid();
     }
 
-    public void drawCharacter(){
-        player = new Picture(200,280,"assets/player1Alive.png");
-        player.draw();
-        noob = new Picture(500, 200,"assets/noobalive.png");
-        noob.draw();
-        rickSanches = new Picture(700, 130,"assets/rick_sanchez_alive.png");
-        rickSanches.draw();
-        lucky = new Picture(1000, 150,"assets/luckylukealive.png");
-        lucky.draw();
+    public void drawPlayerOneCharacter(){
+        cowboyOne = new Picture(400,100,"assets/player1Alive.png");
+        cowboyOne.draw();
+        noobOne = new Picture(400, 250,"assets/noobalive.png");
+        noobOne.draw();
+        rickSanchesOne = new Picture(400, 400,"assets/rick_sanchez_alive.png");
+        rickSanchesOne.draw();
+        luckyOne = new Picture(400, 550,"assets/luckylukealive.png");
+        luckyOne.draw();
     }
 
 
-    public String characterAliveChoice(int choice){
+    public void drawPlayerTwoCharacter(){
+        cowboyTwo = new Picture(1000,100,"assets/player1Alive.png");
+        cowboyTwo.draw();
+        noobTwo = new Picture(1000, 250,"assets/noobalive.png");
+        noobTwo.draw();
+        rickSanchesTwo = new Picture(1000, 400,"assets/rick_sanchez_alive.png");
+        rickSanchesTwo.draw();
+        luckyTwo = new Picture(1000, 550,"assets/luckylukealive.png");
+        luckyTwo.draw();
 
-        return charSpritesAlive[choice];
-
-    }
-
-    public String characterDead(int choice){
-
-        return charSpritesDead[choice];
-
-    }
-
-    public void showPointer(){
-
-        charPointer.draw();
-
-    }
-
-    public void hidePointer(){
-
-        charPointer.delete();
 
     }
 
 
-    public void right(){
-        hidePointer();
-        charPointer.translate(300, 0);
-        showPointer();
+    public String playerOneCharacterAliveChoice(int choice){
+
+        return playerOneSpritesAlive[choice];
 
     }
 
-    public void left(){
+    public String playerOneharacterDead(int choice){
 
-        hidePointer();;
-        charPointer.translate(-300, 0);
-        showPointer();
+        return playerOneSpritesDead[choice];
 
     }
+
+    public String playerTwoCharacterAliveChoice(int choice){
+
+        return playerTwoSpritesAlive[choice];
+
+    }
+
+    public String playerTwoCharcaterDead(int choice){
+
+        return playersTwoSpritesDead[choice];
+
+    }
+
+
+
+
+
+
+    public void showPlayerOnePointer(){
+
+        playerOnePointer.draw();
+
+    }
+
+    public void hidePlayerOnePointer(){
+
+        playerOnePointer.delete();
+
+    }
+
+    public void showPlayerTwoPointer(){
+
+        playerTwoPointer.draw();
+
+    }
+
+    public void hidePlayerTwoPointer(){
+
+        playerTwoPointer.delete();
+
+    }
+
+    public void playerOneUp(){
+
+        hidePlayerOnePointer();;
+        playerOnePointer.translate(0, -200);
+        showPlayerOnePointer();
+
+    }
+
+    public void playerOneDown(){
+        hidePlayerOnePointer();
+        playerOnePointer.translate(0, 200);
+        showPlayerOnePointer();
+
+    }
+
+    public void playerTwoUp(){
+
+        hidePlayerTwoPointer();
+        playerTwoPointer.translate(0, -200);
+        showPlayerTwoPointer();
+
+    }
+
+
+    public void playerTwoDown(){
+        hidePlayerTwoPointer();
+        playerTwoPointer.translate(0, 200);
+        showPlayerTwoPointer();
+
+    }
+
+
 
 
     public void deleteCharSelecMenu(){
-        player.delete();
-        noob.delete();
-        rickSanches.delete();
-        lucky.delete();
+        cowboyOne.delete();
+        noobOne.delete();
+        rickSanchesOne.delete();
+        luckyOne.delete();
+
+        cowboyTwo.delete();
+        noobTwo.delete();
+        rickSanchesTwo.delete();
+        luckyOne.delete();
     }
 
 

@@ -71,9 +71,11 @@ public class Game {
 
     public void start() throws InterruptedException {
 
+            keyboardMenu.menuKeys();
 
-        keyboardMenu.menuKeys();
-        characterSelectionKeyboard.slectionKeys();
+
+        characterSelectionKeyboard.playerOneSelectionKeys();
+        characterSelectionKeyboard.playerTwoSelectionKeys();
 
         if (score.getScorePlayer1() == 0 && score.getScorePlayer2() == 0 && alreadyPlayed == 0) {
             menu.drawMenu();
@@ -86,15 +88,14 @@ public class Game {
         menu.deleteMenu();
 
         characterSelectionMenu.drawCharMenu();
-        characterSelectionMenu.showPointer();
-        characterSelectionMenu.drawCharacter();
+        characterSelectionMenu.drawPlayerOneCharacter();
+        characterSelectionMenu.drawPlayerTwoCharacter();
 
-        while(!characterSelectionKeyboard.getChoice()){
+        while (!characterSelectionKeyboard.getPlayerOneChoice() || !characterSelectionKeyboard.getPlayerTwoChoice()) {
             Thread.sleep(60);
         }
 
         characterSelectionMenu.deleteCharSelecMenu();
-
 
 
         if (keyboardMenu.getMenuDeleted() && keyboardMenu.getPlayerVsPlayer()) {
@@ -111,9 +112,8 @@ public class Game {
             background.drawBackground();
 
 
-
-            drawCharacter.drawPlayerOneAlive(20, characterSelectionMenu.characterAliveChoice(characterSelectionKeyboard.getCharPosition()));
-            drawCharacter.drawPLayerTwoAlive(20, characterSelectionMenu.characterAliveChoice(characterSelectionKeyboard.getCharPosition()));
+            drawCharacter.drawPlayerOneAlive(20, characterSelectionMenu.playerOneCharacterAliveChoice(characterSelectionKeyboard.getPlayerOneCharPosition()));
+            drawCharacter.drawPLayerTwoAlive(20, characterSelectionMenu.playerTwoCharacterAliveChoice(characterSelectionKeyboard.getPlayerTwoCharPosition()));
             timer.startCountdown();
         }
 
@@ -130,20 +130,19 @@ public class Game {
             background = new Background();
             background.drawBackground();
             drawCharacter.drawPlayerOneAlive(20, "assets/player1Alive.png");
-            drawCharacter.drawPLayerTwoAlive(20,"assets/player2Alive.png");
+            drawCharacter.drawPLayerTwoAlive(20, "assets/player2Alive.png");
 
             timer.startCountdown();
 
 
         }
 
-        if(score.getScorePlayer1() != 0 || score.getScorePlayer2() != 0){
+        if (score.getScorePlayer1() != 0 || score.getScorePlayer2() != 0) {
 
-            drawCharacter.drawPlayerOneAlive(20, characterSelectionMenu.characterAliveChoice(characterSelectionKeyboard.getCharPosition()));
-            drawCharacter.drawPLayerTwoAlive(20, characterSelectionMenu.characterAliveChoice(characterSelectionKeyboard.getCharPosition()));
+            drawCharacter.drawPlayerOneAlive(20, characterSelectionMenu.playerOneCharacterAliveChoice(characterSelectionKeyboard.getPlayerOneCharPosition()));
+            drawCharacter.drawPLayerTwoAlive(20, characterSelectionMenu.playerTwoCharacterAliveChoice(characterSelectionKeyboard.getPlayerTwoCharPosition()));
             timer.startCountdown();
         }
-
 
 
         while (!flags[0] || !flags[1]) {
@@ -166,7 +165,6 @@ public class Game {
 
 
     public void winner() throws InterruptedException {
-
 
 
         if (score.getScorePlayer1() == 5) {
@@ -226,7 +224,7 @@ public class Game {
 
             humanPlayers[1].killed();
             drawCharacter.deletePlayer(drawCharacter.getPlayerTwo());
-            drawCharacter.drawPlayerTwoDead(characterSelectionMenu.characterDead(characterSelectionKeyboard.getCharPosition()));
+            drawCharacter.drawPlayerTwoDead(characterSelectionMenu.playerTwoCharcaterDead(characterSelectionKeyboard.getPlayerTwoCharPosition()));
             Arrays.fill(flags, true);
 
             score.addScorePlayer1();
@@ -237,7 +235,7 @@ public class Game {
 
             humanPlayers[0].killed();
             drawCharacter.deletePlayer(drawCharacter.getPlayerOne());
-            drawCharacter.drawPlayerOneDead(characterSelectionMenu.characterDead(characterSelectionKeyboard.getCharPosition()));
+            drawCharacter.drawPlayerOneDead(characterSelectionMenu.playerOneharacterDead(characterSelectionKeyboard.getPlayerOneCharPosition()));
             Arrays.fill(flags, true);
 
             score.addScorePlayer2();

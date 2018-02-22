@@ -8,95 +8,176 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 
 public class CharacterSelectionKeyboard implements KeyboardHandler {
 
-    private int charPosition;
+    private int playerOneCharPosition;
+    private int playerTwoCharPosition;
+
     private CharacterSelectionMenu characterSelectionMenu;
-    private boolean choice;
+
+    private boolean playerOneChoice;
+    private boolean playerTwoChoice;
 
 
     public CharacterSelectionKeyboard(CharacterSelectionMenu characterSelectionMenu) {
 
-        charPosition = 0;
+        playerOneCharPosition = 0;
         this.characterSelectionMenu = characterSelectionMenu;
-        choice = false;
+
+        playerOneChoice = false;
+        playerTwoChoice = false;
 
     }
 
 
-    public void selectRight() {
+    public void playerTwoSelectRight() {
 
         Keyboard k = new Keyboard(this);
         KeyboardEvent event = new KeyboardEvent();
 
-        event.setKey(KeyboardEvent.KEY_RIGHT);
+        event.setKey(KeyboardEvent.KEY_8);
         event.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         k.addEventListener(event);
 
     }
 
-    public void selectLeft() {
+    public void playerTwoSelectLeft() {
 
         Keyboard k = new Keyboard(this);
         KeyboardEvent event = new KeyboardEvent();
 
-        event.setKey(KeyboardEvent.KEY_LEFT);
+        event.setKey(KeyboardEvent.KEY_9);
         event.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         k.addEventListener(event);
 
     }
 
 
-    public void select() {
+    public void playerTwoSelect() {
 
         Keyboard k = new Keyboard(this);
         KeyboardEvent event = new KeyboardEvent();
-        event.setKey(KeyboardEvent.KEY_X);
+        event.setKey(KeyboardEvent.KEY_0);
         event.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         k.addEventListener(event);
     }
 
-    public void slectionKeys() {
+    public void playerOneSelectRight() {
 
-        selectRight();
-        selectLeft();
-        select();
-    }
+        Keyboard k = new Keyboard(this);
+        KeyboardEvent event = new KeyboardEvent();
 
-    public int getCharPosition() {
-
-        return charPosition;
+        event.setKey(KeyboardEvent.KEY_1);
+        event.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        k.addEventListener(event);
 
     }
 
-    public boolean getChoice(){
-        return  choice;
+    public void playerOneSelectLeft() {
+
+        Keyboard k = new Keyboard(this);
+        KeyboardEvent event = new KeyboardEvent();
+
+        event.setKey(KeyboardEvent.KEY_2);
+        event.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        k.addEventListener(event);
+
+    }
+
+
+    public void playerOneSelect() {
+
+        Keyboard k = new Keyboard(this);
+        KeyboardEvent event = new KeyboardEvent();
+        event.setKey(KeyboardEvent.KEY_3);
+        event.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        k.addEventListener(event);
+    }
+
+
+    public void playerOneSelectionKeys() {
+
+        playerOneSelectRight();
+        playerOneSelectLeft();
+        playerOneSelect();
+    }
+
+    public void playerTwoSelectionKeys(){
+
+        playerTwoSelectRight();
+        playerTwoSelectLeft();
+        playerTwoSelect();
+
+    }
+
+    public int getPlayerOneCharPosition() {
+
+        return playerOneCharPosition;
+
+    }
+
+    public int getPlayerTwoCharPosition(){
+
+        return playerTwoCharPosition;
+
+    }
+
+    public boolean getPlayerOneChoice() {
+        return playerOneChoice;
+    }
+
+    public boolean getPlayerTwoChoice(){
+        return playerTwoChoice;
     }
 
 
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
 
+        if(playerOneChoice && playerTwoChoice){
+            return;
+        }
+
         switch (keyboardEvent.getKey()) {
 
-            case KeyboardEvent.KEY_RIGHT:
-                if (charPosition > 3) {
+            case KeyboardEvent.KEY_1:
+                if (playerOneCharPosition > 2) {
                     break;
                 }
-                characterSelectionMenu.right();
-                charPosition += 1;
-                System.out.println(charPosition);
+                characterSelectionMenu.playerOneDown();
+                playerOneCharPosition += 1;
+                System.out.println(playerOneCharPosition);
                 break;
 
-            case KeyboardEvent.KEY_LEFT:
-                if (charPosition < 0) {
+            case KeyboardEvent.KEY_2:
+                if (playerOneCharPosition < 1) {
                     break;
                 }
-                characterSelectionMenu.left();
-                charPosition -= 1;
-                System.out.println(charPosition);
+                characterSelectionMenu.playerOneUp();
+                playerOneCharPosition -= 1;
+                System.out.println(playerOneCharPosition);
                 break;
 
-            case KeyboardEvent.KEY_X:
-                choice = true;
+            case KeyboardEvent.KEY_3:
+                playerOneChoice = true;
+                break;
+
+            case KeyboardEvent.KEY_8:
+                if(playerTwoCharPosition < 1){
+                    break;
+                }
+                playerTwoCharPosition -= 1;
+                characterSelectionMenu.playerTwoUp();
+                break;
+
+            case KeyboardEvent.KEY_9:
+                if(playerTwoCharPosition > 2){
+                    break;
+                }
+                playerTwoCharPosition += 1;
+                characterSelectionMenu.playerTwoDown();
+                break;
+
+            case KeyboardEvent.KEY_0:
+                playerTwoChoice = true;
                 break;
 
             default:
