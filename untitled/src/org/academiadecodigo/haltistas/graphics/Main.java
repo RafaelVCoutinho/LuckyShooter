@@ -1,4 +1,4 @@
-package org.academiadecodigo.haltistas.chronometer.graphics;
+package org.academiadecodigo.haltistas.graphics;
 
 public class Main {
 

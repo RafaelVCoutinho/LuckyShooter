@@ -1,4 +1,4 @@
-package org.academiadecodigo.haltistas.chronometer.keyboard;
+package org.academiadecodigo.haltistas.Keyboard;
 
 
 public enum Controls {

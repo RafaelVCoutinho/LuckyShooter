@@ -1,7 +1,7 @@
-package org.academiadecodigo.haltistas.chronometer.playerEnteties;
+package org.academiadecodigo.haltistas.PlayerEnteties;
 
 
-import org.academiadecodigo.haltistas.chronometer.graphics.DrawCharacter;
+import org.academiadecodigo.haltistas.graphics.DrawCharacter;
 
 public abstract class Player {
 

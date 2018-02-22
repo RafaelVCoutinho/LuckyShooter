@@ -1,4 +1,4 @@
-package org.academiadecodigo.haltistas.chronometer.graphics;
+package org.academiadecodigo.haltistas.graphics;
 
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 

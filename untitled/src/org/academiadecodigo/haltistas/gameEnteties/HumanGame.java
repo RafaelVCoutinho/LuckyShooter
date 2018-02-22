@@ -1,12 +1,13 @@
-package org.academiadecodigo.haltistas.chronometer.gameEnteties;
+package org.academiadecodigo.haltistas.gameEnteties;
 
-import org.academiadecodigo.haltistas.chronometer.keyboard.InputHandlerPlayer1;
-import org.academiadecodigo.haltistas.chronometer.keyboard.InputHandlerPlayer2;
-import org.academiadecodigo.haltistas.chronometer.playerEnteties.HumanPlayer;
-import org.academiadecodigo.haltistas.chronometer.Score;
-import org.academiadecodigo.haltistas.chronometer.graphics.DrawCharacter;
-import org.academiadecodigo.haltistas.chronometer.graphics.DrawScore;
-import org.academiadecodigo.haltistas.chronometer.graphics.Timer;
+import org.academiadecodigo.haltistas.PlayerEnteties.HumanPlayer;
+import org.academiadecodigo.haltistas.Score;
+import org.academiadecodigo.haltistas.Keyboard.InputHandlerPlayer1;
+import org.academiadecodigo.haltistas.Keyboard.InputHandlerPlayer2;
+import org.academiadecodigo.haltistas.graphics.DrawCharacter;
+import org.academiadecodigo.haltistas.graphics.DrawScore;
+import org.academiadecodigo.haltistas.graphics.Timer;
+import java.util.Arrays;
 
 public class HumanGame {
 
@@ -17,6 +18,7 @@ public class HumanGame {
 
     private HumanPlayer[] humanPlayers;
 
+    private Boolean[] flags;
     private boolean flagPlayer1;
     private boolean flagPlayer2;
 
@@ -40,13 +42,12 @@ public class HumanGame {
         inputHandlerPlayer1.key1();
         inputHandlerPlayer2.key2();
 
-        flagPlayer1 = false;
-        flagPlayer2 = false;
-
         drawScore = new DrawScore();
 
         timer = new Timer(this);
 
+
+        flags = new Boolean[]{flagPlayer1 = false, flagPlayer2 = false};
         score = new Score();
     }
 
@@ -58,10 +59,10 @@ public class HumanGame {
 
         timer.startCountdown();
 
-        while (!flagPlayer1 || !flagPlayer2) {
-            Thread.sleep(100);
+        while (!flags[0] || !flags[1]) {
 
-            checkKiller();
+            Thread.sleep(100);
+            dead();
         }
 
         winner();
@@ -76,19 +77,6 @@ public class HumanGame {
         }
     }
 
-    public void shotBeforeTimer() {
-
-        if (humanPlayers[1].isShoot()) {
-            flagPlayer2 = true;
-            inputHandlerPlayer2.resetPressedKeyTime();
-        }
-        if (humanPlayers[0].isShoot()) {
-            flagPlayer1 = true;
-            inputHandlerPlayer1.resetPressedKeyTime();
-        }
-
-
-    }
 
 
     public void winner() {
@@ -103,68 +91,60 @@ public class HumanGame {
     }
 
 
-    public void checkKiller() {
+    public void shotDuringTimer() {
 
-        if (playerTwoShotTime() > playerOneShotTime() && !flagPlayer2) {
+        if (humanPlayers[0].isShoot()) {
 
-            System.out.println("Player2");
-            humanPlayers[0].killed();
+            flags[0] = true;
+            inputHandlerPlayer1.resetPressedKeyTime();
+            System.out.println("shot 2 early player 1");
 
-            flagPlayer1 = true;
-            flagPlayer2 = true;
-
-            drawCharacter.deletePlayer(drawCharacter.getPlayerOne());
-            drawCharacter.drawPlayerOneDead("assets/player1Dead.png");
-
-            score.addScorePlayer2();
-            drawScore.drawPlayerTwoScore(score.getScorePlayer2());
         }
-        if (playerOneShotTime() > playerTwoShotTime() && !flagPlayer1) {
-            System.out.println("Plaeyr1");
+        if (humanPlayers[1].isShoot()) {
+
+            flags[1] = true;
+            inputHandlerPlayer2.resetPressedKeyTime();
+            System.out.println("shot 2 early player 2");
+        }
+    }
+
+
+    public void dead() {
+
+
+        if (inputHandlerPlayer1.getPressedKeyTime() < inputHandlerPlayer2.getPressedKeyTime() && !flags[0]) {
+
             humanPlayers[1].killed();
-
-            flagPlayer1 = true;
-            flagPlayer2 = true;
-
             drawCharacter.deletePlayer(drawCharacter.getPlayerTwo());
             drawCharacter.drawPlayerTwoDead("assets/player2Dead.png");
-
+            Arrays.fill(flags,true);
             score.addScorePlayer1();
             drawScore.drawPlayerOneScore(score.getScorePlayer1());
         }
 
+        if (inputHandlerPlayer2.getPressedKeyTime() < inputHandlerPlayer1.getPressedKeyTime() && !flags[1]) {
 
-    }
+            humanPlayers[0].killed();
+            drawCharacter.deletePlayer(drawCharacter.getPlayerOne());
+            drawCharacter.drawPlayerOneDead("assets/player1Dead.png");
+            Arrays.fill(flags, true);
 
-
-    public long playerOneShotTime() {
-        return inputHandlerPlayer1.getPressedKeyTime() - timer.getBangTime();
-    }
-
-
-    public long playerTwoShotTime() {
-        return inputHandlerPlayer2.getPressedKeyTime() - timer.getBangTime();
+            score.addScorePlayer2();
+            drawScore.drawPlayerTwoScore(score.getScorePlayer2());
+        }
     }
 
 
     public void reset() {
+        Arrays.fill(flags, false);
 
         inputHandlerPlayer1.resetPressedKeyTime();
         inputHandlerPlayer2.resetPressedKeyTime();
-        timer.resetBangTime();
-
-        inputHandlerPlayer1.resetPressedKey();
-        inputHandlerPlayer2.resetPressedKey();
 
         humanPlayers[0].revive();
         humanPlayers[1].revive();
 
         humanPlayers[0].notShot();
         humanPlayers[1].notShot();
-
-        flagPlayer1 = false;
-        flagPlayer2 = false;
     }
-
-
 }

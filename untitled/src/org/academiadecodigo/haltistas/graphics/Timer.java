@@ -1,7 +1,7 @@
-package org.academiadecodigo.haltistas.chronometer.graphics;
+package org.academiadecodigo.haltistas.graphics;
 
-import org.academiadecodigo.haltistas.chronometer.gameEnteties.BotGame;
-import org.academiadecodigo.haltistas.chronometer.gameEnteties.HumanGame;
+import org.academiadecodigo.haltistas.gameEnteties.BotGame;
+import org.academiadecodigo.haltistas.gameEnteties.HumanGame;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Timer extends Grid {
@@ -28,11 +28,10 @@ public class Timer extends Grid {
         drawTimer(60, -4, "assets/set.png");
         deleteTimer();
         delayTimer();
-        drawTimer(110, 0, "assets/bang.png");
-        bangTime = System.currentTimeMillis();
-        Thread.sleep(10);
-        //humanGame.shotBeforeTimer();
         botGame.shotBeforeTimer();
+        drawTimer(110, 0, "assets/bang.png");
+        Thread.sleep(10);
+        //humanGame.shotDuringTimer();
         deleteTimer();
     }
 

@@ -1,12 +1,12 @@
-package org.academiadecodigo.haltistas.chronometer.gameEnteties;
+package org.academiadecodigo.haltistas.gameEnteties;
 
-import org.academiadecodigo.haltistas.chronometer.Score;
-import org.academiadecodigo.haltistas.chronometer.graphics.DrawCharacter;
-import org.academiadecodigo.haltistas.chronometer.graphics.DrawScore;
-import org.academiadecodigo.haltistas.chronometer.graphics.Timer;
-import org.academiadecodigo.haltistas.chronometer.keyboard.InputHandlerPlayer1;
-import org.academiadecodigo.haltistas.chronometer.playerEnteties.BotPlayer;
-import org.academiadecodigo.haltistas.chronometer.playerEnteties.HumanPlayer;
+import org.academiadecodigo.haltistas.PlayerEnteties.BotPlayer;
+import org.academiadecodigo.haltistas.PlayerEnteties.HumanPlayer;
+import org.academiadecodigo.haltistas.Score;
+import org.academiadecodigo.haltistas.graphics.DrawCharacter;
+import org.academiadecodigo.haltistas.graphics.DrawScore;
+import org.academiadecodigo.haltistas.graphics.Timer;
+import org.academiadecodigo.haltistas.Keyboard.InputHandlerPlayer1;
 
 public class BotGame {
 
@@ -136,7 +136,7 @@ public class BotGame {
 
     public void reset() {
 
-        inputHandlerPlayer1.resetPressedKey();
+        inputHandlerPlayer1.resetPressedKeyTime();
 
         humanPlayer.revive();
         botPlayer.revive();

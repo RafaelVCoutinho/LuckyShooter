@@ -1,10 +1,9 @@
-package org.academiadecodigo.haltistas.chronometer;
+package org.academiadecodigo.haltistas;
 
 
-import org.academiadecodigo.haltistas.chronometer.gameEnteties.BotGame;
-import org.academiadecodigo.haltistas.chronometer.gameEnteties.HumanGame;
-import org.academiadecodigo.haltistas.chronometer.graphics.Background;
-import org.academiadecodigo.haltistas.chronometer.graphics.Grid;
+import org.academiadecodigo.haltistas.gameEnteties.BotGame;
+import org.academiadecodigo.haltistas.graphics.Background;
+import org.academiadecodigo.haltistas.graphics.Grid;
 
 public class Main {
 

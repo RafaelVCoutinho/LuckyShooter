@@ -1,51 +1,42 @@
-package org.academiadecodigo.haltistas.chronometer.keyboard;
+package org.academiadecodigo.haltistas.Keyboard;
 
-import org.academiadecodigo.haltistas.chronometer.playerEnteties.HumanPlayer;
+import org.academiadecodigo.haltistas.PlayerEnteties.HumanPlayer;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 
 
-public class InputHandlerPlayer1 implements KeyboardHandler {
+
+public class InputHandlerPlayer2 implements KeyboardHandler {
 
 
     private HumanPlayer humanPlayer;
     private long pressedKeyTime;
-    private boolean pressedKey;
 
 
-    public InputHandlerPlayer1(HumanPlayer humanPlayer) {
+    public InputHandlerPlayer2(HumanPlayer humanPlayer) {
         this.humanPlayer = humanPlayer;
-        this.pressedKeyTime = 0;
-        pressedKey = false;
+        this.pressedKeyTime = 200000;
     }
 
 
-    public void key1() {
+    public void key2() {
 
         Keyboard k = new Keyboard(this);
         KeyboardEvent event = new KeyboardEvent();
 
-        event.setKey(KeyboardEvent.KEY_A);
+        event.setKey(KeyboardEvent.KEY_L);
         event.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         k.addEventListener(event);
     }
 
     public void resetPressedKeyTime(){
-        this.pressedKeyTime = 0;
+        this.pressedKeyTime = 200000;
     }
 
     public long getPressedKeyTime(){
         return pressedKeyTime;
-    }
-
-    public boolean isPressedKey() {
-        return pressedKey;
-    }
-
-    public void resetPressedKey() {
-        this.pressedKey = false;
     }
 
     @Override
@@ -54,14 +45,13 @@ public class InputHandlerPlayer1 implements KeyboardHandler {
         if (humanPlayer.isShoot()) {
             return;
         }
-        System.out.println("A");
+        System.out.println("L");
 
         try {
 
-            pressedKeyTime = System.currentTimeMillis();
-            System.out.println("Player One " + pressedKeyTime);
+            pressedKeyTime = System.currentTimeMillis() % 100000;
+            System.out.println("Player Two " + pressedKeyTime);
             humanPlayer.shoot();
-            pressedKey =true;
 
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -74,3 +64,4 @@ public class InputHandlerPlayer1 implements KeyboardHandler {
 
     }
 }
+

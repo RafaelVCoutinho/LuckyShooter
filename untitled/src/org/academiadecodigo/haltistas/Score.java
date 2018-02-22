@@ -1,4 +1,4 @@
-package org.academiadecodigo.haltistas.chronometer;
+package org.academiadecodigo.haltistas;
 
 
 public class Score {
