@@ -8,7 +8,7 @@ public class HumanPlayer extends Player {
     }
 
     @Override
-    public void shoot() throws InterruptedException {
+    public void shoot() {
         super.shoot();
     }
 }

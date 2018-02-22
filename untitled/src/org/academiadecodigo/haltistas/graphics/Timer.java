@@ -11,7 +11,7 @@ public class Timer extends Grid {
 
     private Picture timerDraw;
     private SuperGame game;
-    private long bangTime;
+    private boolean botFlag;
 
     public Timer(SuperGame game) {
         this.game = game;
@@ -29,7 +29,7 @@ public class Timer extends Grid {
         delayTimer();
         //game.shotBeforeTimer();                                               //BOT timer methoo
         drawTimer(110, 0, "assets/bang.png");
-        Thread.sleep(10);
+        botFlag =true;
         game.shotBeforeTimer();
         deleteTimer();
     }
@@ -54,11 +54,11 @@ public class Timer extends Grid {
 
     }
 
-    public long getBangTime() {
-        return bangTime;
+    public boolean isBotFlag() {
+        return botFlag;
     }
 
-    public void resetBangTime() {
-        bangTime = 0;
+    public void resetBotflag() {
+        botFlag =false;
     }
 }

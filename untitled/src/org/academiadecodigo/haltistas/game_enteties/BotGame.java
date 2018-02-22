@@ -33,13 +33,12 @@ public class BotGame extends SuperGame {
         drawCharacter.drawPLayerTwoAlive("assets/player2Alive.png");
 
         super.startCountdown();
-        botPlayer.shoot();
 
-        while (!flagPlayer || !flagBot) {
-            Thread.sleep(100);
-
-            checkKiller();
+        if (timer.isBotFlag()) {
+            botPlayer.shoot();
         }
+
+        checkKiller();
 
         winner();
 
@@ -63,7 +62,10 @@ public class BotGame extends SuperGame {
     @Override
     public void checkKiller() {
 
-        if (humanPlayer.isShoot() && !flagPlayer) {
+        System.out.println("Player time " + inputHandlerPlayer1.getPressedKeyTime());
+        System.out.println("Bot time " + botPlayer.getShotTimer());
+
+        if (inputHandlerPlayer1.getPressedKeyTime() < botPlayer.getShotTimer() && !flagPlayer) {
             System.out.println("Plaeyr1");
             botPlayer.killed();
 
@@ -75,22 +77,22 @@ public class BotGame extends SuperGame {
 
             score.addScorePlayer1();
             drawScore.drawPlayerOneScore(score.getScorePlayer1());
+
+            return;
         }
 
-        if (botPlayer.isShoot() && !flagBot) {
 
-            System.out.println("Player2");
-            humanPlayer.killed();
+        System.out.println("Player2");
+        humanPlayer.killed();
 
-            flagPlayer = true;
-            flagBot = true;
+        flagPlayer = true;
+        flagBot = true;
 
-            drawCharacter.deletePlayer(drawCharacter.getPlayerOne());
-            drawCharacter.drawPlayerOneDead("assets/player1Dead.png");
+        drawCharacter.deletePlayer(drawCharacter.getPlayerOne());
+        drawCharacter.drawPlayerOneDead("assets/player1Dead.png");
 
-            score.addScorePlayer2();
-            drawScore.drawPlayerTwoScore(score.getScorePlayer2());
-        }
+        score.addScorePlayer2();
+        drawScore.drawPlayerTwoScore(score.getScorePlayer2());
     }
 
 
@@ -106,5 +108,7 @@ public class BotGame extends SuperGame {
 
         flagPlayer = false;
         flagBot = false;
+
+        timer.resetBotflag();
     }
 }

@@ -25,7 +25,7 @@ public abstract class Player {
         return drawCharacter;
     }
 
-    public void shoot() throws InterruptedException {
+    public void shoot() {
         shoot = true;
     }
 

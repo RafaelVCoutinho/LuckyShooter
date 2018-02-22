@@ -16,7 +16,7 @@ public abstract class SuperGame {
     private boolean flagPlayer1;
     private boolean flagPlayer2;
 
-    private Timer timer;
+    protected Timer timer;
     protected Score score;
 
 
