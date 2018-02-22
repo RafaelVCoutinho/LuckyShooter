@@ -14,7 +14,7 @@ public class InputHandlerPlayer2 implements KeyboardHandler {
 
     public InputHandlerPlayer2(HumanPlayer humanPlayer) {
         this.humanPlayer = humanPlayer;
-        pressedKeyTime = 200;
+        pressedKeyTime = 200000;
     }
 
 
@@ -29,7 +29,7 @@ public class InputHandlerPlayer2 implements KeyboardHandler {
     }
 
     public void resetPressedKeyTime() {
-        this.pressedKeyTime = 200;
+        this.pressedKeyTime = 200000;
     }
 
     public long getPressedKeyTime() {
@@ -47,7 +47,7 @@ public class InputHandlerPlayer2 implements KeyboardHandler {
 
         try {
 
-            pressedKeyTime = System.currentTimeMillis() % 100;
+            pressedKeyTime = System.currentTimeMillis() % 100000;
             System.out.println("PLayer Two " + pressedKeyTime);
             humanPlayer.shoot();
 
