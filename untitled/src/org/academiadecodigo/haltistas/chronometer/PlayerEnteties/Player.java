@@ -1,4 +1,4 @@
-package org.academiadecodigo.haltistas.chronometer.PlayerEnteties;
+package org.academiadecodigo.haltistas.chronometer.playerEnteties;
 
 
 import org.academiadecodigo.haltistas.chronometer.graphics.DrawCharacter;

@@ -1,6 +1,8 @@
 package org.academiadecodigo.haltistas.chronometer;
 
 
+import org.academiadecodigo.haltistas.chronometer.gameEnteties.BotGame;
+import org.academiadecodigo.haltistas.chronometer.gameEnteties.HumanGame;
 import org.academiadecodigo.haltistas.chronometer.graphics.Background;
 import org.academiadecodigo.haltistas.chronometer.graphics.Grid;
 
@@ -10,11 +12,13 @@ public class Main {
 
         Grid grid = new Grid();
         Background background = new Background();
-        Game game = new Game();
+        //HumanGame humanGame = new HumanGame();
+        BotGame botGame = new BotGame();
 
         grid.drawGrid();
         background.drawBackground();
-        game.start();
+        //humanGame.start();
+        botGame.start();
 
 
     }

@@ -1,6 +1,6 @@
-package org.academiadecodigo.haltistas.chronometer.Keyboard;
+package org.academiadecodigo.haltistas.chronometer.keyboard;
 
-import org.academiadecodigo.haltistas.chronometer.PlayerEnteties.HumanPlayer;
+import org.academiadecodigo.haltistas.chronometer.playerEnteties.HumanPlayer;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
@@ -10,11 +10,13 @@ public class InputHandlerPlayer2 implements KeyboardHandler {
 
     private HumanPlayer humanPlayer;
     private long pressedKeyTime;
+    private boolean pressedKey;
 
 
     public InputHandlerPlayer2(HumanPlayer humanPlayer) {
         this.humanPlayer = humanPlayer;
-        pressedKeyTime = 200;
+        pressedKeyTime = 0;
+        pressedKey = false;
     }
 
 
@@ -29,13 +31,20 @@ public class InputHandlerPlayer2 implements KeyboardHandler {
     }
 
     public void resetPressedKeyTime() {
-        this.pressedKeyTime = 200;
+        this.pressedKeyTime = 0;
     }
 
     public long getPressedKeyTime() {
         return pressedKeyTime;
     }
 
+    public void resetPressedKey() {
+        this.pressedKey = false;
+    }
+
+    public boolean isPressedKey() {
+        return pressedKey;
+    }
 
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
@@ -47,9 +56,10 @@ public class InputHandlerPlayer2 implements KeyboardHandler {
 
         try {
 
-            pressedKeyTime = System.currentTimeMillis() % 100;
+            pressedKeyTime = System.currentTimeMillis();
             System.out.println("PLayer Two " + pressedKeyTime);
             humanPlayer.shoot();
+            pressedKey = true;
 
         } catch (InterruptedException e) {
             e.printStackTrace();
