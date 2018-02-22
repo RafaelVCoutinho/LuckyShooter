@@ -27,13 +27,13 @@ public class DrawCharacter {
         player.delete();
     }
 
-    public void drawPlayerOneDead(String source) {
-        playerOne = new Picture(PLAYER_ONE_POS, PLAYER_GROUND + 40, source);
+    public void drawPlayerOneDead(int adjustY, String source) {
+        playerOne = new Picture(PLAYER_ONE_POS, PLAYER_GROUND + 40 - adjustY, source);
         playerOne.draw();
     }
 
-    public void drawPlayerTwoDead(String source) {
-        playerTwo = new Picture(PLAYER_TWO_POS, PLAYER_GROUND + 40, source);
+    public void drawPlayerTwoDead(int adjustY, String source) {
+        playerTwo = new Picture(PLAYER_TWO_POS, PLAYER_GROUND + 40 - adjustY, source);
         playerTwo.draw();
     }
 

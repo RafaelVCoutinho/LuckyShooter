@@ -1,6 +1,5 @@
 package org.academiadecodigo.haltistas.chronometer.graphics;
 
-import org.academiadecodigo.haltistas.chronometer.oldgame.GameTwo;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Timer extends Grid {

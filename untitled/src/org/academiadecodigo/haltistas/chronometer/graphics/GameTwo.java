@@ -1,4 +1,4 @@
-package org.academiadecodigo.haltistas.chronometer.oldgame;
+package org.academiadecodigo.haltistas.chronometer.graphics;
 
 import org.academiadecodigo.haltistas.chronometer.Keyboard.CharacterSelectionKeyboard;
 import org.academiadecodigo.haltistas.chronometer.Keyboard.InputHandlerPlayer1;
@@ -117,8 +117,8 @@ public class GameTwo {
             background.drawBackground();
 
 
-            drawCharacter.drawPlayerOneAlive(characterSelectionKeyboard.getPlayerOneCharPosition(), characterSelectionMenu.playerOneCharacterAliveChoice(characterSelectionKeyboard.getPlayerOneCharPosition()));
-            drawCharacter.drawPLayerTwoAlive(characterSelectionKeyboard.getPlayerTwoCharPosition(), characterSelectionMenu.playerTwoCharacterAliveChoice(characterSelectionKeyboard.getPlayerTwoCharPosition()));
+            drawCharacter.drawPlayerOneAlive(characterSelectionMenu.characterPositionAlive(characterSelectionKeyboard.getPlayerOneCharPosition()), characterSelectionMenu.playerOneCharacterAliveChoice(characterSelectionKeyboard.getPlayerOneCharPosition()));
+            drawCharacter.drawPLayerTwoAlive(characterSelectionMenu.characterPositionAlive(characterSelectionKeyboard.getPlayerTwoCharPosition()), characterSelectionMenu.playerTwoCharacterAliveChoice(characterSelectionKeyboard.getPlayerTwoCharPosition()));
             timer.startCountdown();
         }
 
@@ -144,8 +144,8 @@ public class GameTwo {
 
         if (score.getScorePlayer1() != 0 || score.getScorePlayer2() != 0) {
 
-            drawCharacter.drawPlayerOneAlive(characterSelectionKeyboard.getPlayerOneCharPosition(), characterSelectionMenu.playerOneCharacterAliveChoice(characterSelectionKeyboard.getPlayerOneCharPosition()));
-            drawCharacter.drawPLayerTwoAlive(characterSelectionKeyboard.getPlayerTwoCharPosition(), characterSelectionMenu.playerTwoCharacterAliveChoice(characterSelectionKeyboard.getPlayerTwoCharPosition()));
+            drawCharacter.drawPlayerOneAlive(characterSelectionMenu.characterPositionAlive(characterSelectionKeyboard.getPlayerOneCharPosition()), characterSelectionMenu.playerOneCharacterAliveChoice(characterSelectionKeyboard.getPlayerOneCharPosition()));
+            drawCharacter.drawPLayerTwoAlive(characterSelectionMenu.characterPositionAlive(characterSelectionKeyboard.getPlayerTwoCharPosition()), characterSelectionMenu.playerTwoCharacterAliveChoice(characterSelectionKeyboard.getPlayerTwoCharPosition()));
             timer.startCountdown();
         }
 
@@ -181,7 +181,7 @@ public class GameTwo {
             drawScore.deleteScore();
             menu.drawMenu();
             keyboardMenu.menuChoiceFalse();
-            keyboardMenu.menuDeletedTrue();
+            keyboardMenu.menuDeletedFalse();
             characterSelectionKeyboard.playerOneChoiceFalse();
             characterSelectionKeyboard.playerTwoChoiceFalse();
             score.reset();
@@ -198,7 +198,7 @@ public class GameTwo {
             drawScore.deleteScore();
             menu.drawMenu();
             keyboardMenu.menuChoiceFalse();
-            keyboardMenu.menuDeletedTrue();
+            keyboardMenu.menuDeletedFalse();
             characterSelectionKeyboard.playerOneChoiceFalse();
             characterSelectionKeyboard.playerTwoChoiceFalse();
             score.reset();
@@ -233,7 +233,7 @@ public class GameTwo {
 
             humanPlayers[1].killed();
             drawCharacter.deletePlayer(drawCharacter.getPlayerTwo());
-            drawCharacter.drawPlayerTwoDead(characterSelectionMenu.playerTwoCharcaterDead(characterSelectionKeyboard.getPlayerTwoCharPosition()));
+            drawCharacter.drawPlayerTwoDead(characterSelectionMenu.characterPositionDead(characterSelectionKeyboard.getPlayerTwoCharPosition()), characterSelectionMenu.playerTwoCharcaterDead(characterSelectionKeyboard.getPlayerTwoCharPosition()));
             Arrays.fill(flags, true);
 
             score.addScorePlayer1();
@@ -244,7 +244,7 @@ public class GameTwo {
 
             humanPlayers[0].killed();
             drawCharacter.deletePlayer(drawCharacter.getPlayerOne());
-            drawCharacter.drawPlayerOneDead(characterSelectionMenu.playerOneharacterDead(characterSelectionKeyboard.getPlayerOneCharPosition()));
+            drawCharacter.drawPlayerOneDead(characterSelectionMenu.characterPositionDead(characterSelectionKeyboard.getPlayerOneCharPosition()),characterSelectionMenu.playerOneharacterDead(characterSelectionKeyboard.getPlayerOneCharPosition()));
             Arrays.fill(flags, true);
 
             score.addScorePlayer2();

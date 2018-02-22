@@ -1,7 +1,7 @@
 package org.academiadecodigo.haltistas.chronometer;
 
 
-import org.academiadecodigo.haltistas.chronometer.oldgame.GameTwo;
+import org.academiadecodigo.haltistas.chronometer.graphics.GameTwo;
 
 public class Main {
 

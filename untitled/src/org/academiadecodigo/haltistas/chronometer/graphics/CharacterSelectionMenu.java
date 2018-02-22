@@ -14,8 +14,8 @@ public class CharacterSelectionMenu extends Grid {
     private String[] playerTwoSpritesAlive;
     private String[] playersTwoSpritesDead;
 
-    private Integer[] playerOneCharacterPosition;
-    private Integer[] playerTwoCharacterPosition;
+    private Integer[] characterPositionAlive;
+    private Integer[] characterPositionDead;
 
     private Picture playerOnePointer;
     private Picture playerTwoPointer;
@@ -36,8 +36,8 @@ public class CharacterSelectionMenu extends Grid {
         playerOneSpritesAlive = new String[]{"assets/player1Alive.png","assets/noobnoobalive1.png", "assets/luckyalive1.png" };
         playerOneSpritesDead = new String[]{"assets/player1Dead.png","assets/noobnoobdead1.png", "assets/luckydead1.png"};
 
-        playerOneCharacterPosition = new Integer[]{20, 40 , 40};
-        playerTwoCharacterPosition = new Integer[]{20, 40, 40};
+        characterPositionAlive = new Integer[]{-15, 45 , 60};
+        characterPositionDead = new Integer[]{-30, 45, -25};
 
         playerTwoSpritesAlive = new String[]{"assets/player2Alive.png","assets/noobnoobalive2.png",  "assets/luckyalive2.png" };
         playersTwoSpritesDead = new String[]{"assets/player2Dead.png","assets/noobnoobdead2.png", "assets/luckydead2.png"};
@@ -49,15 +49,15 @@ public class CharacterSelectionMenu extends Grid {
     }
 
 
-    public Integer getPlayerTwoCharacterPosition( int pos){
+    public Integer characterPositionDead( int pos){
 
-        return playerTwoCharacterPosition[pos];
+        return characterPositionDead[pos];
     }
 
 
-    public Integer getPlayerOneCharacterPosition(int pos){
+    public Integer characterPositionAlive(int pos){
 
-        return playerOneCharacterPosition[pos];
+        return characterPositionAlive[pos];
 
     }
 
