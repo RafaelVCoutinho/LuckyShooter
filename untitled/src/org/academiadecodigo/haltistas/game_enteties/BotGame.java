@@ -1,16 +1,10 @@
-package org.academiadecodigo.haltistas.gameEnteties;
+package org.academiadecodigo.haltistas.game_enteties;
 
-import org.academiadecodigo.haltistas.PlayerEnteties.BotPlayer;
-import org.academiadecodigo.haltistas.PlayerEnteties.HumanPlayer;
-import org.academiadecodigo.haltistas.Score;
-import org.academiadecodigo.haltistas.graphics.DrawCharacter;
-import org.academiadecodigo.haltistas.graphics.DrawScore;
-import org.academiadecodigo.haltistas.graphics.Timer;
-import org.academiadecodigo.haltistas.Keyboard.InputHandlerPlayer1;
+import org.academiadecodigo.haltistas.player_enteties.BotPlayer;
+import org.academiadecodigo.haltistas.player_enteties.HumanPlayer;
+import org.academiadecodigo.haltistas.keyboard.InputHandlerPlayer1;
 
-public class BotGame {
-
-    private final int MAX_NUMBER_OF_ROUNDS = 5;
+public class BotGame extends SuperGame {
 
     private InputHandlerPlayer1 inputHandlerPlayer1;
 
@@ -20,12 +14,6 @@ public class BotGame {
     private boolean flagPlayer;
     private boolean flagBot;
 
-    private Timer timer;
-    private Score score;
-
-    private DrawScore drawScore;
-    private DrawCharacter drawCharacter;
-
 
     public BotGame() {
 
@@ -33,28 +21,18 @@ public class BotGame {
         humanPlayer = new HumanPlayer("FODETE");
 
         inputHandlerPlayer1 = new InputHandlerPlayer1(humanPlayer);
-
-        drawCharacter = new DrawCharacter();
-
         inputHandlerPlayer1.key1();
 
         flagPlayer = false;
         flagBot = false;
-
-        drawScore = new DrawScore();
-
-        timer = new Timer(this);
-
-        score = new Score();
     }
 
-
+    @Override
     public void start() throws InterruptedException {
-
         drawCharacter.drawPlayerOneAlive(0, "assets/player1Alive.png");
         drawCharacter.drawPLayerTwoAlive("assets/player2Alive.png");
 
-        timer.startCountdown();
+        super.startCountdown();
         botPlayer.shoot();
 
         while (!flagPlayer || !flagBot) {
@@ -65,17 +43,10 @@ public class BotGame {
 
         winner();
 
-        if (score.getScorePlayer1() < MAX_NUMBER_OF_ROUNDS && score.getScorePlayer2() < MAX_NUMBER_OF_ROUNDS) {
-            Thread.sleep(1000);
-
-            drawCharacter.deletePlayer(drawCharacter.getPlayerOne());
-            drawCharacter.deletePlayer(drawCharacter.getPlayerTwo());
-            reset();
-            start();
-        }
+        super.start();
     }
 
-
+    @Override
     public void shotBeforeTimer() {
 
         if (humanPlayer.isShoot()) {
@@ -89,18 +60,7 @@ public class BotGame {
     }
 
 
-    public void winner() {
-
-        if (score.getScorePlayer1() == 5) {
-            drawScore.drawPlayerWins(350, 250, "assets/playerOneWins.png");
-        }
-
-        if (score.getScorePlayer2() == 5) {
-            drawScore.drawPlayerWins(350, 250, "assets/playerTwoWins.png");
-        }
-    }
-
-
+    @Override
     public void checkKiller() {
 
         if (humanPlayer.isShoot() && !flagPlayer) {

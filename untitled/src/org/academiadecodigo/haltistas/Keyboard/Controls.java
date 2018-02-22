@@ -1,4 +1,4 @@
-package org.academiadecodigo.haltistas.Keyboard;
+package org.academiadecodigo.haltistas.keyboard;
 
 
 public enum Controls {

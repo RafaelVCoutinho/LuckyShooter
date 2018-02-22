@@ -1,24 +1,23 @@
 package org.academiadecodigo.haltistas.graphics;
 
-import org.academiadecodigo.haltistas.gameEnteties.BotGame;
-import org.academiadecodigo.haltistas.gameEnteties.HumanGame;
+import com.sun.tools.javac.comp.Todo;
+import com.sun.xml.internal.bind.v2.TODO;
+import org.academiadecodigo.haltistas.game_enteties.BotGame;
+import org.academiadecodigo.haltistas.game_enteties.HumanGame;
+import org.academiadecodigo.haltistas.game_enteties.SuperGame;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Timer extends Grid {
 
     private Picture timerDraw;
-    private HumanGame humanGame;
-    private BotGame botGame;
+    private SuperGame game;
     private long bangTime;
 
-    public Timer(HumanGame humanGame) {
-        this.humanGame = humanGame;
+    public Timer(SuperGame game) {
+        this.game = game;
     }
 
-    public Timer(BotGame botGame) {
-        this.botGame = botGame;
-    }
-
+    //TODO improve bot reaction time
     public void startCountdown() throws InterruptedException {
 
         Thread.sleep(4000);
@@ -28,10 +27,10 @@ public class Timer extends Grid {
         drawTimer(60, -4, "assets/set.png");
         deleteTimer();
         delayTimer();
-        botGame.shotBeforeTimer();
+        //game.shotBeforeTimer();                                               //BOT timer methoo
         drawTimer(110, 0, "assets/bang.png");
         Thread.sleep(10);
-        //humanGame.shotDuringTimer();
+        game.shotBeforeTimer();
         deleteTimer();
     }
 

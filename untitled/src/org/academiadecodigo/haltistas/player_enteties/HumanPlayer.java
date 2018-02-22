@@ -1,4 +1,4 @@
-package org.academiadecodigo.haltistas.PlayerEnteties;
+package org.academiadecodigo.haltistas.player_enteties;
 
 
 public class HumanPlayer extends Player {

@@ -1,7 +1,8 @@
 package org.academiadecodigo.haltistas;
 
 
-import org.academiadecodigo.haltistas.gameEnteties.BotGame;
+import org.academiadecodigo.haltistas.game_enteties.BotGame;
+import org.academiadecodigo.haltistas.game_enteties.HumanGame;
 import org.academiadecodigo.haltistas.graphics.Background;
 import org.academiadecodigo.haltistas.graphics.Grid;
 

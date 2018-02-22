@@ -1,17 +1,12 @@
-package org.academiadecodigo.haltistas.gameEnteties;
+package org.academiadecodigo.haltistas.game_enteties;
 
-import org.academiadecodigo.haltistas.PlayerEnteties.HumanPlayer;
-import org.academiadecodigo.haltistas.Score;
-import org.academiadecodigo.haltistas.Keyboard.InputHandlerPlayer1;
-import org.academiadecodigo.haltistas.Keyboard.InputHandlerPlayer2;
-import org.academiadecodigo.haltistas.graphics.DrawCharacter;
-import org.academiadecodigo.haltistas.graphics.DrawScore;
-import org.academiadecodigo.haltistas.graphics.Timer;
+import org.academiadecodigo.haltistas.player_enteties.HumanPlayer;
+import org.academiadecodigo.haltistas.keyboard.InputHandlerPlayer1;
+import org.academiadecodigo.haltistas.keyboard.InputHandlerPlayer2;
+
 import java.util.Arrays;
 
-public class HumanGame {
-
-    private final int MAX_NUMBER_OF_ROUNDS = 5;
+public class HumanGame extends SuperGame {
 
     private InputHandlerPlayer1 inputHandlerPlayer1;
     private InputHandlerPlayer2 inputHandlerPlayer2;
@@ -22,76 +17,41 @@ public class HumanGame {
     private boolean flagPlayer1;
     private boolean flagPlayer2;
 
-    private Timer timer;
-    private Score score;
-
-    private DrawScore drawScore;
-
-    private DrawCharacter drawCharacter;
-
 
     public HumanGame() {
+
+        super();
 
         humanPlayers = new HumanPlayer[]{new HumanPlayer("Woody Toy"), new HumanPlayer("Lucky Luke")};
 
         inputHandlerPlayer1 = new InputHandlerPlayer1(humanPlayers[0]);
         inputHandlerPlayer2 = new InputHandlerPlayer2(humanPlayers[1]);
 
-        drawCharacter = new DrawCharacter();
-
         inputHandlerPlayer1.key1();
         inputHandlerPlayer2.key2();
 
-        drawScore = new DrawScore();
-
-        timer = new Timer(this);
-
-
         flags = new Boolean[]{flagPlayer1 = false, flagPlayer2 = false};
-        score = new Score();
     }
 
 
+    @Override
     public void start() throws InterruptedException {
+        super.drawCharacter();
 
-        drawCharacter.drawPlayerOneAlive(0, "assets/player1Alive.png");
-        drawCharacter.drawPLayerTwoAlive("assets/player2Alive.png");
-
-        timer.startCountdown();
+        super.startCountdown();
 
         while (!flags[0] || !flags[1]) {
 
             Thread.sleep(100);
-            dead();
+            checkKiller();
         }
 
         winner();
-
-        if (score.getScorePlayer1() < MAX_NUMBER_OF_ROUNDS && score.getScorePlayer2() < MAX_NUMBER_OF_ROUNDS) {
-            Thread.sleep(1000);
-
-            drawCharacter.deletePlayer(drawCharacter.getPlayerOne());
-            drawCharacter.deletePlayer(drawCharacter.getPlayerTwo());
-            reset();
-            start();
-        }
+        super.start();
     }
 
-
-
-    public void winner() {
-
-        if (score.getScorePlayer1() == 5) {
-            drawScore.drawPlayerWins(350, 250, "assets/playerOneWins.png");
-        }
-
-        if (score.getScorePlayer2() == 5) {
-            drawScore.drawPlayerWins(350, 250, "assets/playerTwoWins.png");
-        }
-    }
-
-
-    public void shotDuringTimer() {
+    @Override
+    public void shotBeforeTimer() {
 
         if (humanPlayers[0].isShoot()) {
 
@@ -108,8 +68,8 @@ public class HumanGame {
         }
     }
 
-
-    public void dead() {
+    @Override
+    public void checkKiller() {
 
 
         if (inputHandlerPlayer1.getPressedKeyTime() < inputHandlerPlayer2.getPressedKeyTime() && !flags[0]) {
@@ -117,7 +77,7 @@ public class HumanGame {
             humanPlayers[1].killed();
             drawCharacter.deletePlayer(drawCharacter.getPlayerTwo());
             drawCharacter.drawPlayerTwoDead("assets/player2Dead.png");
-            Arrays.fill(flags,true);
+            Arrays.fill(flags, true);
             score.addScorePlayer1();
             drawScore.drawPlayerOneScore(score.getScorePlayer1());
         }
