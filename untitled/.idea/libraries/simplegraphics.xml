@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="simplegraphics">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/simplegraphics.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
