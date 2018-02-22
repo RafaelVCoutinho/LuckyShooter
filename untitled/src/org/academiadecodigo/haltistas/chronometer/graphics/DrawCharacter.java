@@ -17,8 +17,8 @@ public class DrawCharacter {
         playerOne.draw();
     }
 
-    public void drawPLayerTwoAlive(String source) {
-        playerTwo = new Picture(PLAYER_TWO_POS, PLAYER_GROUND, source);
+    public void drawPLayerTwoAlive(int adjustY, String source) {
+        playerTwo = new Picture(PLAYER_TWO_POS, PLAYER_GROUND - adjustY, source);
         playerTwo.draw();
     }
 

@@ -86,13 +86,14 @@ public class Game {
         menu.deleteMenu();
 
         characterSelectionMenu.drawCharMenu();
+        characterSelectionMenu.showPointer();
         characterSelectionMenu.drawCharacter();
 
         while(!characterSelectionKeyboard.getChoice()){
             Thread.sleep(60);
         }
 
-
+        characterSelectionMenu.deleteCharSelecMenu();
 
 
 
@@ -111,8 +112,8 @@ public class Game {
 
 
 
-            drawCharacter.drawPlayerOneAlive(0, characterSelectionMenu.characterAliveChoice(characterSelectionKeyboard.getCharPosition()));
-            drawCharacter.drawPLayerTwoAlive(characterSelectionMenu.characterAliveChoice(characterSelectionKeyboard.getCharPosition()));
+            drawCharacter.drawPlayerOneAlive(20, characterSelectionMenu.characterAliveChoice(characterSelectionKeyboard.getCharPosition()));
+            drawCharacter.drawPLayerTwoAlive(20, characterSelectionMenu.characterAliveChoice(characterSelectionKeyboard.getCharPosition()));
             timer.startCountdown();
         }
 
@@ -128,8 +129,8 @@ public class Game {
             grid.drawGrid();
             background = new Background();
             background.drawBackground();
-            drawCharacter.drawPlayerOneAlive(0, "assets/player1Alive.png");
-            drawCharacter.drawPLayerTwoAlive("assets/player2Alive.png");
+            drawCharacter.drawPlayerOneAlive(20, "assets/player1Alive.png");
+            drawCharacter.drawPLayerTwoAlive(20,"assets/player2Alive.png");
 
             timer.startCountdown();
 
@@ -138,8 +139,8 @@ public class Game {
 
         if(score.getScorePlayer1() != 0 || score.getScorePlayer2() != 0){
 
-            drawCharacter.drawPlayerOneAlive(0, "assets/player1Alive.png");
-            drawCharacter.drawPLayerTwoAlive("assets/player2Alive.png");
+            drawCharacter.drawPlayerOneAlive(20, characterSelectionMenu.characterAliveChoice(characterSelectionKeyboard.getCharPosition()));
+            drawCharacter.drawPLayerTwoAlive(20, characterSelectionMenu.characterAliveChoice(characterSelectionKeyboard.getCharPosition()));
             timer.startCountdown();
         }
 
@@ -225,7 +226,7 @@ public class Game {
 
             humanPlayers[1].killed();
             drawCharacter.deletePlayer(drawCharacter.getPlayerTwo());
-            drawCharacter.drawPlayerTwoDead("assets/player2Dead.png");
+            drawCharacter.drawPlayerTwoDead(characterSelectionMenu.characterDead(characterSelectionKeyboard.getCharPosition()));
             Arrays.fill(flags, true);
 
             score.addScorePlayer1();
@@ -236,7 +237,7 @@ public class Game {
 
             humanPlayers[0].killed();
             drawCharacter.deletePlayer(drawCharacter.getPlayerOne());
-            drawCharacter.drawPlayerOneDead("assets/player1Dead.png");
+            drawCharacter.drawPlayerOneDead(characterSelectionMenu.characterDead(characterSelectionKeyboard.getCharPosition()));
             Arrays.fill(flags, true);
 
             score.addScorePlayer2();

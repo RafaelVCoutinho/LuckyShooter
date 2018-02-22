@@ -17,7 +17,7 @@ public class CharacterSelectionMenu extends Grid {
     public CharacterSelectionMenu(){
 
         charSpritesAlive = new String[]{"assets/player1Alive.png","assets/noobalive.png", "assets/rick_sanchez_alive.png", "assets/luckylukealive.png" };
-        charSpritesDead = new String[]{"assets/player1Dead.png","assets/noobdead.png", "assets/rick_sanchez_dead.png", "assets/luckyluke.png"};
+        charSpritesDead = new String[]{"assets/player1Dead.png","assets/noobdead.png", "assets/rick_sanchez_dead.png", "assets/luckylukedead.png"};
         charPointer = new Picture(200, 400, "assets/charpointer.png");
 
     }
@@ -76,6 +76,14 @@ public class CharacterSelectionMenu extends Grid {
         charPointer.translate(-300, 0);
         showPointer();
 
+    }
+
+
+    public void deleteCharSelecMenu(){
+        player.delete();
+        noob.delete();
+        rickSanches.delete();
+        lucky.delete();
     }
 
 
