@@ -1,9 +1,7 @@
-package org.academiadecodigo.haltistas.chronometer.PlayerEnteties;
+package org.academiadecodigo.haltistas.chronometer.playerEnteties;
 
 
 public class HumanPlayer extends Player {
-
-
 
     public HumanPlayer(String name) {
         super(name);

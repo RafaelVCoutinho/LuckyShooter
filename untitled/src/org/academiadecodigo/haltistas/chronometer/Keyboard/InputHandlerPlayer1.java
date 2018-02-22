@@ -1,12 +1,10 @@
-package org.academiadecodigo.haltistas.chronometer.Keyboard;
+package org.academiadecodigo.haltistas.chronometer.keyboard;
 
-import org.academiadecodigo.haltistas.chronometer.PlayerEnteties.HumanPlayer;
+import org.academiadecodigo.haltistas.chronometer.playerEnteties.HumanPlayer;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
-
-import java.sql.Timestamp;
 
 
 public class InputHandlerPlayer1 implements KeyboardHandler {
@@ -14,11 +12,13 @@ public class InputHandlerPlayer1 implements KeyboardHandler {
 
     private HumanPlayer humanPlayer;
     private long pressedKeyTime;
+    private boolean pressedKey;
 
 
     public InputHandlerPlayer1(HumanPlayer humanPlayer) {
         this.humanPlayer = humanPlayer;
-        this.pressedKeyTime = 200;
+        this.pressedKeyTime = 0;
+        pressedKey = false;
     }
 
 
@@ -33,11 +33,19 @@ public class InputHandlerPlayer1 implements KeyboardHandler {
     }
 
     public void resetPressedKeyTime(){
-        this.pressedKeyTime = 200;
+        this.pressedKeyTime = 0;
     }
 
     public long getPressedKeyTime(){
         return pressedKeyTime;
+    }
+
+    public boolean isPressedKey() {
+        return pressedKey;
+    }
+
+    public void resetPressedKey() {
+        this.pressedKey = false;
     }
 
     @Override
@@ -50,9 +58,10 @@ public class InputHandlerPlayer1 implements KeyboardHandler {
 
         try {
 
-            pressedKeyTime = System.currentTimeMillis() % 100;
+            pressedKeyTime = System.currentTimeMillis();
             System.out.println("Player One " + pressedKeyTime);
             humanPlayer.shoot();
+            pressedKey =true;
 
         } catch (InterruptedException e) {
             e.printStackTrace();
