@@ -1,5 +1,6 @@
 package org.academiadecodigo.haltistas.chronometer;
 
+import org.academiadecodigo.haltistas.chronometer.oldgame.GameTwo;
 import org.academiadecodigo.simplegraphics.graphics.Text;
 
 public class Chronometer {
@@ -7,9 +8,9 @@ public class Chronometer {
     private Thread thread;
     private Text text;
     private boolean running;
-    private Game game;
+    private GameTwo game;
 
-    public Chronometer(Game game) {
+    public Chronometer(GameTwo game) {
 
         this.text = new Text(700 / 2, 500 / 2, "Test");
         this.thread = new Thread();

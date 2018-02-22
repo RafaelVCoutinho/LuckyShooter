@@ -1,15 +1,16 @@
-package org.academiadecodigo.haltistas.chronometer;
+package org.academiadecodigo.haltistas.chronometer.oldgame;
 
 import org.academiadecodigo.haltistas.chronometer.Keyboard.CharacterSelectionKeyboard;
 import org.academiadecodigo.haltistas.chronometer.Keyboard.InputHandlerPlayer1;
 import org.academiadecodigo.haltistas.chronometer.Keyboard.InputHandlerPlayer2;
 import org.academiadecodigo.haltistas.chronometer.Keyboard.KeyboardMenu;
 import org.academiadecodigo.haltistas.chronometer.PlayerEnteties.HumanPlayer;
+import org.academiadecodigo.haltistas.chronometer.Score;
 import org.academiadecodigo.haltistas.chronometer.graphics.*;
 
 import java.util.Arrays;
 
-public class Game {
+public class GameTwo {
 
     private final int MAX_NUMBER_OF_ROUNDS = 5;
 
@@ -40,7 +41,7 @@ public class Game {
     private CharacterSelectionKeyboard characterSelectionKeyboard;
 
 
-    public Game() {
+    public GameTwo() {
 
         characterSelectionMenu = new CharacterSelectionMenu();
         characterSelectionKeyboard = new CharacterSelectionKeyboard(characterSelectionMenu);

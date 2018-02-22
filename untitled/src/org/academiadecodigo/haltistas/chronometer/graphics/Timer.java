@@ -1,15 +1,14 @@
 package org.academiadecodigo.haltistas.chronometer.graphics;
 
-import org.academiadecodigo.haltistas.chronometer.Game;
-import org.academiadecodigo.haltistas.chronometer.graphics.Grid;
+import org.academiadecodigo.haltistas.chronometer.oldgame.GameTwo;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Timer extends Grid {
 
     private Picture timerDraw;
-    private Game game;
+    private GameTwo game;
 
-    public Timer(Game game) {
+    public Timer(GameTwo game) {
         this.game = game;
     }
 
