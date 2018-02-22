@@ -128,6 +128,14 @@ public class CharacterSelectionKeyboard implements KeyboardHandler {
         return playerTwoChoice;
     }
 
+    public void playerOneChoiceFalse(){
+        playerOneChoice = false;
+    }
+
+    public void playerTwoChoiceFalse(){
+        playerTwoChoice = false;
+    }
+
 
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
@@ -161,19 +169,19 @@ public class CharacterSelectionKeyboard implements KeyboardHandler {
                 break;
 
             case KeyboardEvent.KEY_8:
-                if(playerTwoCharPosition < 1){
-                    break;
-                }
-                playerTwoCharPosition -= 1;
-                characterSelectionMenu.playerTwoUp();
-                break;
-
-            case KeyboardEvent.KEY_9:
                 if(playerTwoCharPosition > 2){
                     break;
                 }
                 playerTwoCharPosition += 1;
                 characterSelectionMenu.playerTwoDown();
+                break;
+
+            case KeyboardEvent.KEY_9:
+                if(playerTwoCharPosition < 1){
+                    break;
+                }
+                playerTwoCharPosition -= 1;
+                characterSelectionMenu.playerTwoUp();
                 break;
 
             case KeyboardEvent.KEY_0:

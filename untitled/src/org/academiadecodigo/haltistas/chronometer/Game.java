@@ -87,9 +87,13 @@ public class Game {
 
         menu.deleteMenu();
 
-        characterSelectionMenu.drawCharMenu();
-        characterSelectionMenu.drawPlayerOneCharacter();
-        characterSelectionMenu.drawPlayerTwoCharacter();
+        if(score.getScorePlayer1() == 0 && score.getScorePlayer2() == 0){
+            characterSelectionMenu.drawCharMenu();
+            characterSelectionMenu.showPlayerOnePointer();
+            characterSelectionMenu.showPlayerTwoPointer();
+            characterSelectionMenu.drawPlayerOneCharacter();
+            characterSelectionMenu.drawPlayerTwoCharacter();
+        }
 
         while (!characterSelectionKeyboard.getPlayerOneChoice() || !characterSelectionKeyboard.getPlayerTwoChoice()) {
             Thread.sleep(60);
@@ -177,6 +181,8 @@ public class Game {
             menu.drawMenu();
             keyboardMenu.menuChoiceFalse();
             keyboardMenu.menuDeletedTrue();
+            characterSelectionKeyboard.playerOneChoiceFalse();
+            characterSelectionKeyboard.playerTwoChoiceFalse();
             score.reset();
             alreadyPlayed = 1;
 
@@ -192,6 +198,8 @@ public class Game {
             menu.drawMenu();
             keyboardMenu.menuChoiceFalse();
             keyboardMenu.menuDeletedTrue();
+            characterSelectionKeyboard.playerOneChoiceFalse();
+            characterSelectionKeyboard.playerTwoChoiceFalse();
             score.reset();
             alreadyPlayed = 1;
 

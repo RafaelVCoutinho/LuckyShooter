@@ -32,14 +32,12 @@ public class CharacterSelectionMenu extends Grid {
         playerOneSpritesAlive = new String[]{"assets/player1Alive.png","assets/noobalive.png", "assets/rick_sanchez_alive.png", "assets/luckylukealive.png" };
         playerOneSpritesDead = new String[]{"assets/player1Dead.png","assets/noobdead.png", "assets/rick_sanchez_dead.png", "assets/luckylukedead.png"};
 
-        playerTwoSpritesAlive = new String[]{"assets/player1Alive.png","assets/noobalive.png", "assets/rick_sanchez_alive.png", "assets/luckylukealive.png" };
-        playersTwoSpritesDead = new String[]{"assets/player1Dead.png","assets/noobdead.png", "assets/rick_sanchez_dead.png", "assets/luckylukedead.png"};
+        playerTwoSpritesAlive = new String[]{"assets/player2Alive.png","assets/noobalive.png", "assets/rick_sanchez_alive.png", "assets/luckylukealive.png" };
+        playersTwoSpritesDead = new String[]{"assets/player2Dead.png","assets/noobdead.png", "assets/rick_sanchez_dead.png", "assets/luckylukedead.png"};
 
         playerOnePointer = new Picture(50, 100, "assets/menupointer.png");
-        playerOnePointer.draw();
 
         playerTwoPointer = new Picture(1200, 100, "assets/menupointer.png");
-        playerTwoPointer.draw();
 
     }
 
@@ -60,7 +58,7 @@ public class CharacterSelectionMenu extends Grid {
 
 
     public void drawPlayerTwoCharacter(){
-        cowboyTwo = new Picture(1000,100,"assets/player1Alive.png");
+        cowboyTwo = new Picture(1000,100,"assets/player2Alive.png");
         cowboyTwo.draw();
         noobTwo = new Picture(1000, 250,"assets/noobalive.png");
         noobTwo.draw();
@@ -165,11 +163,13 @@ public class CharacterSelectionMenu extends Grid {
         noobOne.delete();
         rickSanchesOne.delete();
         luckyOne.delete();
+        playerOnePointer.delete();
 
         cowboyTwo.delete();
         noobTwo.delete();
         rickSanchesTwo.delete();
-        luckyOne.delete();
+        luckyTwo.delete();
+        playerTwoPointer.delete();
     }
 
 
