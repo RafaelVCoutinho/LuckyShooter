@@ -1,10 +1,7 @@
 package org.academiadecodigo.haltistas.chronometer;
 
-
-import org.academiadecodigo.haltistas.chronometer.Keyboard.KeyboardMenu;
-import org.academiadecodigo.haltistas.chronometer.graphics.Background;
-import org.academiadecodigo.haltistas.chronometer.graphics.Grid;
-import org.academiadecodigo.haltistas.chronometer.graphics.Menu;
+import org.academiadecodigo.haltistas.chronometer.Keyboard.CharacterSelectionKeyboard;
+import org.academiadecodigo.haltistas.chronometer.graphics.CharacterSelectionMenu;
 
 public class Main {
 
@@ -18,6 +15,11 @@ public class Main {
             game.start();
 
         }
+
+
+
+
+
 
 
     }

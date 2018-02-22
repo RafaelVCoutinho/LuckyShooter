@@ -1,5 +1,6 @@
 package org.academiadecodigo.haltistas.chronometer;
 
+import org.academiadecodigo.haltistas.chronometer.Keyboard.CharacterSelectionKeyboard;
 import org.academiadecodigo.haltistas.chronometer.Keyboard.InputHandlerPlayer1;
 import org.academiadecodigo.haltistas.chronometer.Keyboard.InputHandlerPlayer2;
 import org.academiadecodigo.haltistas.chronometer.Keyboard.KeyboardMenu;
@@ -34,8 +35,15 @@ public class Game {
 
     private DrawCharacter drawCharacter;
 
+    private CharacterSelectionMenu characterSelectionMenu;
+
+    private CharacterSelectionKeyboard characterSelectionKeyboard;
+
 
     public Game() {
+
+        characterSelectionMenu = new CharacterSelectionMenu();
+        characterSelectionKeyboard = new CharacterSelectionKeyboard(characterSelectionMenu);
 
         humanPlayers = new HumanPlayer[]{new HumanPlayer("Woody Toy"), new HumanPlayer("Lucky Luke")};
         menu = new Menu();
@@ -65,6 +73,7 @@ public class Game {
 
 
         keyboardMenu.menuKeys();
+        characterSelectionKeyboard.slectionKeys();
 
         if (score.getScorePlayer1() == 0 && score.getScorePlayer2() == 0 && alreadyPlayed == 0) {
             menu.drawMenu();
@@ -73,6 +82,19 @@ public class Game {
         while (!keyboardMenu.getMenuChoice()) {
             Thread.sleep(60);
         }
+
+        menu.deleteMenu();
+
+        characterSelectionMenu.drawCharMenu();
+        characterSelectionMenu.drawCharacter();
+
+        while(!characterSelectionKeyboard.getChoice()){
+            Thread.sleep(60);
+        }
+
+
+
+
 
         if (keyboardMenu.getMenuDeleted() && keyboardMenu.getPlayerVsPlayer()) {
             menu.deleteMenu();
@@ -86,16 +108,17 @@ public class Game {
             grid.drawGrid();
             background = new Background();
             background.drawBackground();
-            drawCharacter.drawPlayerOneAlive(0, "assets/player1Alive.png");
-            drawCharacter.drawPLayerTwoAlive("assets/player2Alive.png");
+
+
+
+            drawCharacter.drawPlayerOneAlive(0, characterSelectionMenu.characterAliveChoice(characterSelectionKeyboard.getCharPosition()));
+            drawCharacter.drawPLayerTwoAlive(characterSelectionMenu.characterAliveChoice(characterSelectionKeyboard.getCharPosition()));
             timer.startCountdown();
-
-
         }
 
 
         if (keyboardMenu.getMenuDeleted() && !keyboardMenu.getPlayerVsPlayer()) {
-            menu.deleteMenu();
+
 
             keyboardMenu.menuDeletedFalse();
             System.out.println("entrou no bot");
