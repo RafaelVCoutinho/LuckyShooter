@@ -16,6 +16,8 @@ public class Menu extends Grid {
     public Menu(){
 
         menu = new Rectangle(10, 10, 1381, 741);
+        background = new Picture(PADDLE+0.5, PADDLE+0.5, "assets/menubackground.jpg");
+        background.grow(-0.5, -0.5);
     }
 
 
@@ -61,6 +63,7 @@ public class Menu extends Grid {
     public void deleteMenu(){
 
         menu.delete();
+        background.delete();
         playerVsPlayer.delete();
         playerVsComputer.delete();
         menuPointer.delete();
@@ -68,6 +71,7 @@ public class Menu extends Grid {
 
     public void drawMenu() {
         menu.draw();
+        background.draw();
         drawPlayerVsPlayer();
         drawPlayerVsComputer();
         drawMenuPointer();

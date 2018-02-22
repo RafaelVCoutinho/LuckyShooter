@@ -7,7 +7,8 @@ public class DrawScore extends Grid {
 
     private int newStar;
 
-    private Picture star;
+    private Picture playerOneStar;
+    private Picture playerTwoStar;
     private Picture playerWins;
     private Picture round;
 
@@ -18,71 +19,76 @@ public class DrawScore extends Grid {
 
     }
 
-    public void drawPlayerOneScore(int nextStar) {
-        int pos = 100;
-        int end = 0;
+    public void drawPlayerOneScore(int score) {
 
+        int x = 200;
+        int y = 100;
 
-        switch (nextStar) {
+        switch (score) {
             case 1:
-                end = 30;
+                playerOneStar = new Picture(x, y, "assets/star1.png");
+                playerOneStar.draw();
                 break;
             case 2:
-                end = 60;
+                playerOneStar.delete();
+                playerOneStar = new Picture(x, y, "assets/star2.png");
+                playerOneStar.draw();
                 break;
             case 3:
-                end = 90;
+                playerOneStar.delete();
+                playerOneStar = new Picture(x, y, "assets/star3.png");
+                playerOneStar.draw();
                 break;
             case 4:
-                end = 120;
+                playerOneStar.delete();
+                playerOneStar = new Picture(x, y, "assets/star4.png");
+                playerOneStar.draw();
                 break;
             case 5:
-                end = 150;
+                playerOneStar.delete();
+                playerOneStar = new Picture(x, y, "assets/star5.png");
+                playerOneStar.draw();
                 break;
 
-        }
-
-        for (int i = 0; i < end; i += 30) {
-
-            //this.newStar += nextStar;
-            star = new Picture(pos + i, 30, "assets/starCounter.png");
-            star.draw();
         }
 
 
     }
 
-    public void drawPlayerTwoScore(int newStar) {
+    public void drawPlayerTwoScore(int score) {
 
-        int pos = 1050;
-        int end = 0;
+        int x = 1050;
+        int y = 100;
 
+        switch (score) {
 
-        switch (newStar) {
             case 1:
-                end = 30;
+                playerTwoStar = new Picture(x, y, "assets/star1.png");
+                playerTwoStar.draw();
                 break;
             case 2:
-                end = 60;
+                playerTwoStar.delete();
+                playerTwoStar = new Picture(x, y, "assets/star2.png");
+                playerTwoStar.draw();
                 break;
             case 3:
-                end = 90;
+                playerTwoStar.delete();
+                playerTwoStar = new Picture(x, y, "assets/star3.png");
+                playerTwoStar.draw();
                 break;
             case 4:
-                end = 120;
+                playerTwoStar.delete();
+                playerTwoStar = new Picture(x, y, "assets/star4.png");
+                playerTwoStar.draw();
                 break;
             case 5:
-                end = 150;
+                playerTwoStar.delete();
+                playerTwoStar = new Picture(x, y, "assets/star5.png");
+                playerTwoStar.draw();
                 break;
 
         }
 
-        for (int i = 0; i < end; i += 30) {
-
-            //this.newStar += nextStar;
-            star = new Picture(pos + i, 30, "assets/starCounter.png");
-            star.draw();
-        }
     }
 
     //player one: x = 350, y = 250
@@ -131,24 +137,25 @@ public class DrawScore extends Grid {
                 break;
         }
     }
-public void deleteRound(){
+
+    public void deleteRound() {
         try {
             Thread.sleep(2000);
             round.delete();
-        }catch (InterruptedException s) {
+        } catch (InterruptedException s) {
             System.out.println("Ups");
         }
-}
+    }
 
     public void deletePlayerWins() throws InterruptedException {
         Thread.sleep(800);
         playerWins.delete();
     }
 
-    public void deleteScore(){
-        star.delete();
+    public void deleteScore() {
+        playerOneStar.delete();
+        playerTwoStar.delete();
         playerWins.delete();
-        //round.delete();
     }
 
 }

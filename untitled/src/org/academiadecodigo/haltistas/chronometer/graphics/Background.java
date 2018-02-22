@@ -11,8 +11,8 @@ public class Background extends Grid {
 
     public Background() throws InterruptedException {
 
-        background = new Picture(-100, -70, "assets/saloon.jpg");
-        background.grow(-110, -80);
+        background = new Picture(PADDLE+0.5, PADDLE+0.5, "assets/saloon.jpg");
+        background.grow(-0.5, -0.5);
 
     }
 

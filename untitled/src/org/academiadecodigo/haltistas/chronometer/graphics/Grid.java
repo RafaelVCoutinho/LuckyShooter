@@ -6,7 +6,7 @@ import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 public class Grid {
 
 
-    public final static int PADDLE = 9;
+    public final static int PADDLE = 10;
     public final static int WIDTH = 1381;
     public final static int HEIGHT = 741;
     public final static int WIDTH_CENTER = WIDTH / 2;

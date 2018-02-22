@@ -17,6 +17,7 @@ public class Game {
     private KeyboardMenu keyboardMenu;
     private Menu menu;
 
+    private int alreadyPlayed;
     private HumanPlayer[] humanPlayers;
 
     private Boolean[] flags;
@@ -55,6 +56,8 @@ public class Game {
 
         flags = new Boolean[]{flagPlayer1 = false, flagPlayer2 = false};
         score = new Score();
+        alreadyPlayed = 0;
+
     }
 
 
@@ -63,7 +66,7 @@ public class Game {
 
         keyboardMenu.menuKeys();
 
-        if (score.getScorePlayer1() == 0 && score.getScorePlayer2() == 0) {
+        if (score.getScorePlayer1() == 0 && score.getScorePlayer2() == 0 && alreadyPlayed == 0) {
             menu.drawMenu();
         }
 
@@ -72,8 +75,13 @@ public class Game {
         }
 
         if (keyboardMenu.getMenuDeleted() && keyboardMenu.getPlayerVsPlayer()) {
-            System.out.println("entrou no player vs player");
             menu.deleteMenu();
+
+            keyboardMenu.menuDeletedFalse();
+
+            System.out.println("entrou no player vs player");
+
+
             grid = new Grid();
             grid.drawGrid();
             background = new Background();
@@ -82,24 +90,35 @@ public class Game {
             drawCharacter.drawPLayerTwoAlive("assets/player2Alive.png");
             timer.startCountdown();
 
-            keyboardMenu.menuDeletedFalse();
+
         }
 
 
         if (keyboardMenu.getMenuDeleted() && !keyboardMenu.getPlayerVsPlayer()) {
-            System.out.println("entrou no bot");
             menu.deleteMenu();
+
+            keyboardMenu.menuDeletedFalse();
+            System.out.println("entrou no bot");
+
+
             grid = new Grid();
             grid.drawGrid();
             background = new Background();
             background.drawBackground();
             drawCharacter.drawPlayerOneAlive(0, "assets/player1Alive.png");
             drawCharacter.drawPLayerTwoAlive("assets/player2Alive.png");
+
             timer.startCountdown();
 
-            keyboardMenu.menuDeletedFalse();
+
         }
 
+        if(score.getScorePlayer1() != 0 || score.getScorePlayer2() != 0){
+
+            drawCharacter.drawPlayerOneAlive(0, "assets/player1Alive.png");
+            drawCharacter.drawPLayerTwoAlive("assets/player2Alive.png");
+            timer.startCountdown();
+        }
 
 
 
@@ -122,9 +141,12 @@ public class Game {
     }
 
 
-    public void winner() {
+    public void winner() throws InterruptedException {
+
+
 
         if (score.getScorePlayer1() == 5) {
+            Thread.sleep(2000);
             drawScore.drawPlayerWins(350, 250, "assets/playerOneWins.png");
             grid.deleteGird();
             background.deleteBackground();
@@ -134,10 +156,12 @@ public class Game {
             keyboardMenu.menuChoiceFalse();
             keyboardMenu.menuDeletedTrue();
             score.reset();
+            alreadyPlayed = 1;
 
         }
 
         if (score.getScorePlayer2() == 5) {
+            Thread.sleep(2000);
             drawScore.drawPlayerWins(350, 250, "assets/playerTwoWins.png");
             grid.deleteGird();
             background.deleteBackground();
@@ -147,6 +171,7 @@ public class Game {
             keyboardMenu.menuChoiceFalse();
             keyboardMenu.menuDeletedTrue();
             score.reset();
+            alreadyPlayed = 1;
 
         }
     }
