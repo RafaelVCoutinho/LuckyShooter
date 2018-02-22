@@ -1,15 +1,14 @@
-package org.academiadecodigo.haltistas.chronometer;
+package org.academiadecodigo.haltistas.chronometer.gameEnteties;
 
-import org.academiadecodigo.haltistas.chronometer.Keyboard.InputHandlerPlayer1;
-import org.academiadecodigo.haltistas.chronometer.Keyboard.InputHandlerPlayer2;
-import org.academiadecodigo.haltistas.chronometer.PlayerEnteties.HumanPlayer;
+import org.academiadecodigo.haltistas.chronometer.keyboard.InputHandlerPlayer1;
+import org.academiadecodigo.haltistas.chronometer.keyboard.InputHandlerPlayer2;
+import org.academiadecodigo.haltistas.chronometer.playerEnteties.HumanPlayer;
+import org.academiadecodigo.haltistas.chronometer.Score;
 import org.academiadecodigo.haltistas.chronometer.graphics.DrawCharacter;
 import org.academiadecodigo.haltistas.chronometer.graphics.DrawScore;
 import org.academiadecodigo.haltistas.chronometer.graphics.Timer;
 
-import java.util.Arrays;
-
-public class Game {
+public class HumanGame {
 
     private final int MAX_NUMBER_OF_ROUNDS = 5;
 
@@ -29,7 +28,7 @@ public class Game {
     private DrawCharacter drawCharacter;
 
 
-    public Game() {
+    public HumanGame() {
 
         humanPlayers = new HumanPlayer[]{new HumanPlayer("Woody Toy"), new HumanPlayer("Lucky Luke")};
 
@@ -60,14 +59,11 @@ public class Game {
         timer.startCountdown();
 
         while (!flagPlayer1 || !flagPlayer2) {
-
             Thread.sleep(100);
 
             checkKiller();
         }
-        System.out.println("After while");
-        //System.out.println("Player Um " + inputHandlerPlayer1.getPressedKeyTime());
-        //System.out.println("Player Dois " + inputHandlerPlayer2.getPressedKeyTime());
+
         winner();
 
         if (score.getScorePlayer1() < MAX_NUMBER_OF_ROUNDS && score.getScorePlayer2() < MAX_NUMBER_OF_ROUNDS) {
@@ -82,15 +78,16 @@ public class Game {
 
     public void shotBeforeTimer() {
 
+        if (humanPlayers[1].isShoot()) {
+            flagPlayer2 = true;
+            inputHandlerPlayer2.resetPressedKeyTime();
+        }
         if (humanPlayers[0].isShoot()) {
             flagPlayer1 = true;
             inputHandlerPlayer1.resetPressedKeyTime();
         }
 
-        if (humanPlayers[1].isShoot()) {
-            flagPlayer2 = true;
-            inputHandlerPlayer2.resetPressedKeyTime();
-        }
+
     }
 
 
@@ -108,6 +105,20 @@ public class Game {
 
     public void checkKiller() {
 
+        if (playerTwoShotTime() > playerOneShotTime() && !flagPlayer2) {
+
+            System.out.println("Player2");
+            humanPlayers[0].killed();
+
+            flagPlayer1 = true;
+            flagPlayer2 = true;
+
+            drawCharacter.deletePlayer(drawCharacter.getPlayerOne());
+            drawCharacter.drawPlayerOneDead("assets/player1Dead.png");
+
+            score.addScorePlayer2();
+            drawScore.drawPlayerTwoScore(score.getScorePlayer2());
+        }
         if (playerOneShotTime() > playerTwoShotTime() && !flagPlayer1) {
             System.out.println("Plaeyr1");
             humanPlayers[1].killed();
@@ -122,21 +133,6 @@ public class Game {
             drawScore.drawPlayerOneScore(score.getScorePlayer1());
         }
 
-        if (playerTwoShotTime() > playerOneShotTime() && !flagPlayer2) {
-
-            System.out.println("Player2");
-            humanPlayers[0].killed();
-
-            flagPlayer1 = true;
-            flagPlayer2 = true;
-
-            drawCharacter.deletePlayer(drawCharacter.getPlayerOne());
-            drawCharacter.drawPlayerOneDead("assets/player1Dead.png");
-
-            score.addScorePlayer2();
-            drawScore.drawPlayerTwoScore(score.getScorePlayer2());
-
-        }
 
     }
 

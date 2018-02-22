@@ -1,14 +1,14 @@
-package org.academiadecodigo.haltistas.chronometer.PlayerEnteties;
+package org.academiadecodigo.haltistas.chronometer.playerEnteties;
 
 public class BotPlayer extends Player {
 
-    public BotPlayer() {
-        super("BOT");
+    public BotPlayer(String name) {
+        super(name);
     }
 
     @Override
     public void shoot() throws InterruptedException {
-        int shootTime = (int) (Math.random()*2000)+ 1000;
+        int shootTime = (int) (Math.random() * 0.00000000000000000000000005);
 
         Thread.sleep(shootTime);
 

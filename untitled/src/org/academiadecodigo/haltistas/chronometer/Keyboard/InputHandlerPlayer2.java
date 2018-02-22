@@ -1,6 +1,6 @@
-package org.academiadecodigo.haltistas.chronometer.Keyboard;
+package org.academiadecodigo.haltistas.chronometer.keyboard;
 
-import org.academiadecodigo.haltistas.chronometer.PlayerEnteties.HumanPlayer;
+import org.academiadecodigo.haltistas.chronometer.playerEnteties.HumanPlayer;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
